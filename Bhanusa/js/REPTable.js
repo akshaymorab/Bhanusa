@@ -38,8 +38,9 @@ function FUC(id) {
     }
     if (conString == "tblDC" || conString == "tblEmployeeDetails" || conString == "tblPO") {
         closelab();
+        $("#tblStock").hide();
         $("#tblRepo").show();
-        var fin = "hi";
+        var fin = conString;
         try {
             $.ajax({
                 type: "POST",
@@ -69,7 +70,7 @@ function FUC(id) {
                         '<td><div style="color:black; right:inherit">' + rwDt[2] + '</div></td>' +
                         '</tr>' + '</hr>');
 
-                    var len = $('#tblRepoDC tbody tr').length;
+                    var len = $('#tblRepo tbody tr').length;
 
                 }
 
@@ -121,8 +122,10 @@ function FUC(id) {
             }
             var len = $('#tblRepoStock tbody tr').length;
             $('#label1').text(len);
+
         }
         $("#tblRepoStock tbody").empty();
+        
     }
 
 }
