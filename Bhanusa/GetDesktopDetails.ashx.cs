@@ -44,18 +44,19 @@ namespace Bhanusa
                         if (st != "")
                         {
                             strRent = st.Split('r');
+                            if (strRent[0] != "")
+                            {
+
+                                MySqlConnection con1 = new MySqlConnection(strCon);
+                                con1.Open();
+                                MySqlCommand cmd1 = new MySqlCommand("SELECT Configuration, Quantity, Status, (SELECT Company From tblDC WHERE DCNo=" + strRent[0] + ") AS Company FROM tblRentItem WHERE RentCode='" + st + "'", con1);
+                                MySqlDataAdapter da1 = new MySqlDataAdapter(cmd1);
+                                da1.Fill(dt1);
+                                con1.Close();
+                            }
 
                         }
-                        if (strRent[0] != "")
-                        {
-                            
-                            MySqlConnection con1 = new MySqlConnection(strCon);
-                            con1.Open();
-                            MySqlCommand cmd1 = new MySqlCommand("SELECT Configuration, Quantity, Status, (SELECT Company From tblDC WHERE DCNo="+strRent[0]+") AS Company FROM tblRentItem WHERE RentCode='"+st+"'", con1);
-                            MySqlDataAdapter da1 = new MySqlDataAdapter(cmd1);
-                            da1.Fill(dt1);
-                            con1.Close();
-                        }
+                        
                         if (i == 0)
                         {
                             str = dt.Rows[i]["SerialNumber"].ToString() + ";" + dt.Rows[i]["ModelNumber"].ToString() + ";" + dt.Rows[i]["Status"].ToString() + ";" + strRent[0]+";" +dt1.Rows[0]["Company"].ToString() + ";" + dt1.Rows[0]["Configuration"].ToString() + ";" + dt1.Rows[0]["Quantity"].ToString() + ";" + dt1.Rows[0]["Status"].ToString();
