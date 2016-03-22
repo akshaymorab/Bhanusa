@@ -222,10 +222,10 @@
         }
         //enable buttons
         function btnenable() {
-            document.getElementByid("btnUser").disabled = false;
-            document.getElementByid("btnDC").disabled = false;
-            document.getElementByid("btnStock").disabled = false;
-            document.getElementByid("btnReport").disabled = false;
+            document.getElementById("btnUser").disabled = false;
+            document.getElementById("btnDC").disabled = false;
+            document.getElementById("btnStock").disabled = false;
+            document.getElementById("btnReport").disabled = false;
         }
 
         //clear text fields
@@ -352,13 +352,13 @@
             var rentCode = $('#lblRentCode').text();
             if (id == "btnStkAdd") {
                 type = $('#ddlSelect option:selected').text();
-                dte = document.getElementByid('<%=txtPurchaseDate.ClientID%>').value;
+                dte = document.getElementById('<%=txtPurchaseDate.ClientID%>').value;
                 status = $('#ddlStatus option:selected').val();
 
             }
             else {
                 type = $('#ddlSelect option:selected').text();
-                dte = document.getElementByid('<%=txtPurchaseDate.ClientID%>').value;
+                dte = document.getElementById('<%=txtPurchaseDate.ClientID%>').value;
                 status = $('#ddlStatus option:selected').val();
             }
             jsonStkDetail = stock + '%' + mdno + '%' + type + '%' + brnd + '%' + dte + '%' + mdln + '%' + rmks + '%' + status + '%' + rentCode + '%' + id;
