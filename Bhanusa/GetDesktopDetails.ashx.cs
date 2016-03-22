@@ -24,8 +24,6 @@ namespace Bhanusa
                 System.Web.Script.Serialization.JavaScriptSerializer jSerialiser = new System.Web.Script.Serialization.JavaScriptSerializer();
                 jsonStr = instr.ReadToEnd();
                 string str = string.Empty;
-                string str1 = string.Empty;
-                string str2 = string.Empty;
                 DataTable dt = new DataTable();
                 DataTable dt1 = new DataTable();
                 MySqlConnection con = new MySqlConnection(strCon);

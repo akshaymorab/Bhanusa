@@ -28,7 +28,7 @@ namespace Bhanusa
                 DataTable dt = new DataTable();
                 MySqlConnection con = new MySqlConnection(strCon);
                 con.Open();
-                MySqlCommand cmd = new MySqlCommand("SELECT tblDC.DCNo, tblDC.Company, tblDC.Date, tblDesktop.Status from tblDC ORDER BY DCNo ASC", con);
+                MySqlCommand cmd = new MySqlCommand("SELECT "+jsonStr+".DCNo, "+jsonStr+".Company,"+jsonStr+".Date from "+jsonStr+" ORDER BY DCNo ASC", con);
                 MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                 da.Fill(dt);
                 con.Close();
