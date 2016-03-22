@@ -58,12 +58,12 @@ namespace Bhanusa
                         }
                         if (i == 0)
                         {
-                            str = dt.Rows[i]["SerialNumber"].ToString() + ";" + dt.Rows[i]["ModelNumber"].ToString() + ";" + dt.Rows[i]["Status"].ToString() + ";" + dt1.Rows[0]["Company"].ToString() + ";" + dt1.Rows[0]["Configuration"].ToString() + ";" + dt1.Rows[0]["Quantity"].ToString() + ";" + dt1.Rows[0]["Status"].ToString();
+                            str = dt.Rows[i]["SerialNumber"].ToString() + ";" + dt.Rows[i]["ModelNumber"].ToString() + ";" + dt.Rows[i]["Status"].ToString() + ";" + strRent[0]+";" +dt1.Rows[0]["Company"].ToString() + ";" + dt1.Rows[0]["Configuration"].ToString() + ";" + dt1.Rows[0]["Quantity"].ToString() + ";" + dt1.Rows[0]["Status"].ToString();
                            
                         }
                         else
                         {
-                            str = str + "%" + dt.Rows[i]["SerialNumber"].ToString() + ";" + dt.Rows[i]["ModelNumber"].ToString() + ";" + dt.Rows[i]["Status"].ToString() + ";" + dt.Rows[i]["RentCode"].ToString()+ ";" + dt1.Rows[0]["Company"].ToString() + ";" + dt1.Rows[0]["Configuration"].ToString() + ";" + dt1.Rows[0]["Quantity"].ToString() + ";" + dt1.Rows[0]["Status"].ToString();
+                            str = str + "%" + dt.Rows[i]["SerialNumber"].ToString() + ";" + dt.Rows[i]["ModelNumber"].ToString() + ";" + dt.Rows[i]["Status"].ToString() +  ";" + strRent[0]+";"+ dt1.Rows[0]["Company"].ToString() + ";" + dt1.Rows[0]["Configuration"].ToString() + ";" + dt1.Rows[0]["Quantity"].ToString() + ";" + dt1.Rows[0]["Status"].ToString();
 
                         }
 
