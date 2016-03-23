@@ -608,7 +608,7 @@
     <!--Report-->
     <div id="divRpot" class="table" style="margin: 5% 5px 0 20px; display: none;">
         <input type="button" id="btn1" value="DC" class="btn" onclick="FUC(this.id);" />
-        <input type="button" id="btn2" value="User" class="btn" onclick="FUC(this.id);" />
+        <input type="button" id="btn2" value="User" class="btn"/>
         <input type="button" id="btn3" value="PO" class="btn" onclick="FUC(this.id);" />
         <input type="button" id="btn4" value="Desktop" class="btn" onclick="FUC(this.id);" />
         <input type="button" id="btn5" value="Laptop" class="btn" onclick="FUC(this.id);" />
@@ -620,9 +620,19 @@
         <input type="button" id="btn11" value="Accessories" class="btn" onclick="FUC(this.id);" />
         <input type="button" id="btn12" value="Others" class="btn" onclick="FUC(this.id);" />
         <input type="button" id="btn13" value="Company" class="btn" onclick="FUC(this.id);" /><br />
-        <div>
-            <label id="label1"></label><label id="label2"></label> <label id="label3"></label> <label id="label4">Select Column</label>
-            <input type="text" id="txt1" class="Search" style="margin: 0.2% 2px 10px 685px;" onclick="Search();" />
+        <div id="divSearch" class="table">
+            <label id="label1">Count:</label><label id="label2"></label><label id="strRent">Rent</label><label id="label3"></label><label id="strInStock">In Stock:</label><label id="label4"></label>
+            <label id="strColmn">Select Column:</label>
+            <select id="ddlSearch">
+                <option value="0">--Select--</option>
+                <option value="1">SerialNumber</option>
+                <option value="2">ModelNumber</option>
+                <option value="3">DCNo</option>
+                <option value="4">Company</option>
+            </select>
+            <input type="text" id="txt1" autocomplete="on" onclick="fucSearch();" <%--style="margin: 0.2% 2px 10px 685px;"--%>" />
+            <input type="button" value="Search" id="btnSearch" />
+            <label id="strGetId" style="display:none"></label>
             </div>
      
          <table id="tblRepoStock" class="tblPO" style="display: none">

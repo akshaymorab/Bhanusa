@@ -25,20 +25,20 @@ namespace Bhanusa
                 jsonStr = instr.ReadToEnd();
                 string str = string.Empty;
                 DataTable dt = new DataTable();
-                DataTable dt1 = new DataTable();
                 MySqlConnection con = new MySqlConnection(strCon);
                 con.Open();
                 MySqlCommand cmd = new MySqlCommand("SELECT * FROM " + jsonStr, con);
                 MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                 da.Fill(dt);
                 con.Close();
-                string st;
+                
                 string[] strRent = null;
                 if (dt.Rows.Count >= 0)
                 {
 
                     for (int i = 0; i <= dt.Rows.Count - 1; i++)
                     {
+                        string st = string.Empty;
                         st = dt.Rows[i]["RentCode"].ToString();
 
                         if (st != "")
@@ -46,14 +46,16 @@ namespace Bhanusa
                             strRent = st.Split('r');
                             if (strRent[0] != "")
                             {
-
+                                int dcno = Convert.ToInt32(strRent[0]);
+                                DataTable dt1 = new DataTable();
                                 MySqlConnection con1 = new MySqlConnection(strCon);
                                 con1.Open();
-                                MySqlCommand cmd1 = new MySqlCommand("SELECT Configuration, Quantity, Status, (SELECT Company From tblDC WHERE DCNo=" + strRent[0] + ") AS Company FROM tblRentItem WHERE RentCode='" + st + "'", con1);
+                                MySqlCommand cmd1 = new MySqlCommand("SELECT Configuration, Quantity, Status, (SELECT Company From tblDC WHERE DCNo=" + dcno + ") AS Company FROM tblRentItem WHERE RentCode='" + st + "'", con1);
                                 MySqlDataAdapter da1 = new MySqlDataAdapter(cmd1);
                                 da1.Fill(dt1);
                                 con1.Close();
-                                if (dt1.Rows.Count != 0)
+                                int sts =Convert.ToInt32(dt.Rows[i]["Status"].ToString());
+                                if (dt1.Rows.Count != 0 && sts != 0)
                                 {
                                     if (i == 0)
                                     {
@@ -74,12 +76,12 @@ namespace Bhanusa
                         {
                             if (i == 0)
                             {
-                                str = dt.Rows[i]["SerialNumber"].ToString() + ";" + dt.Rows[i]["ModelNumber"].ToString() + ";" + dt.Rows[i]["Status"].ToString() + ";" + strRent[0];
+                                str = dt.Rows[i]["SerialNumber"].ToString() + ";" + dt.Rows[i]["ModelNumber"].ToString() + ";" + dt.Rows[i]["Status"].ToString() + ";" + "--" + ";" + "--" + ";" + "--"  +";" + "--"  +";" + "--";
 
                             }
                             else
                             {
-                                str = str + "%" + dt.Rows[i]["SerialNumber"].ToString() + ";" + dt.Rows[i]["ModelNumber"].ToString() + ";" + dt.Rows[i]["Status"].ToString() + ";" + strRent[0];
+                                str = str + "%" + dt.Rows[i]["SerialNumber"].ToString() + ";" + dt.Rows[i]["ModelNumber"].ToString() + ";" + dt.Rows[i]["Status"].ToString() + ";" + "--" + ";" + "--" + ";" + "--" + ";" + "--" + ";" + "--";
 
                             }
                         }

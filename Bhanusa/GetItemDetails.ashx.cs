@@ -28,65 +28,84 @@ namespace Bhanusa
                 var chkItem = jsonString;
 
                 DataTable dtDCItem = new DataTable();
+                DataTable dtRepoItem = new DataTable();
                 MySqlConnection conn = new MySqlConnection(connString);
                 string[] chkDCItem = chkItem.Split(',');
                 conn.Open();
-                if (chkItem == "Desktop")
+                if (chkDCItem.Length > 1)
                 {
-                    MySqlCommand cmd1 = new MySqlCommand("SELECT SerialNumber, ModelNumber FROM tblDesktop where Status = 0", conn);
+                    MySqlCommand cmd1 = new MySqlCommand("SELECT "+chkDCItem[0]+" FROM "+chkDCItem[1], conn);
                     MySqlDataAdapter da1 = new MySqlDataAdapter(cmd1);
-                    da1.Fill(dtDCItem);
+                    da1.Fill(dtRepoItem);
                 }
-                if (chkItem == "Laptop")
+                else
                 {
-                    MySqlCommand cmd1 = new MySqlCommand("SELECT SerialNumber, ModelNumber FROM tblLaptop where Status = 0", conn);
-                    MySqlDataAdapter da1 = new MySqlDataAdapter(cmd1);
-                    da1.Fill(dtDCItem);
-                }
-                if (chkItem == "Server")
-                {
-                    MySqlCommand cmd1 = new MySqlCommand("SELECT SerialNumber, ModelNumber FROM tblServer where Status = 0", conn);
-                    MySqlDataAdapter da1 = new MySqlDataAdapter(cmd1);
-                    da1.Fill(dtDCItem);
-                }
-                if (chkItem == "Printer")
-                {
-                    MySqlCommand cmd1 = new MySqlCommand("SELECT SerialNumber, ModelNumber FROM tblPrinter where Status = 0", conn);
-                    MySqlDataAdapter da1 = new MySqlDataAdapter(cmd1);
-                    da1.Fill(dtDCItem);
-                }
-                if (chkItem == "Projector")
-                {
-                    MySqlCommand cmd1 = new MySqlCommand("SELECT SerialNumber, ModelNumber FROM tblProjector where Status = 0", conn);
-                    MySqlDataAdapter da1 = new MySqlDataAdapter(cmd1);
-                    da1.Fill(dtDCItem);
-                }
-                if (chkItem == "Mobile")
-                {
-                    MySqlCommand cmd1 = new MySqlCommand("SELECT SerialNumber, ModelNumber FROM tblMobile where Status = 0", conn);
-                    MySqlDataAdapter da1 = new MySqlDataAdapter(cmd1);
-                    da1.Fill(dtDCItem);
-                }
-                if (chkItem == "Tablet")
-                {
-                    MySqlCommand cmd1 = new MySqlCommand("SELECT SerialNumber, ModelNumber FROM tblTablet where Status = 0", conn);
-                    MySqlDataAdapter da1 = new MySqlDataAdapter(cmd1);
-                    da1.Fill(dtDCItem);
-                }
-                if (chkItem == "Accessories")
-                {
-                    MySqlCommand cmd1 = new MySqlCommand("SELECT SerialNumber, ModelNumber FROM tblAccessories where Status = 0", conn);
-                    MySqlDataAdapter da1 = new MySqlDataAdapter(cmd1);
-                    da1.Fill(dtDCItem);
-                }
-                if (chkItem == "Others")
-                {
-                    MySqlCommand cmd1 = new MySqlCommand("SELECT SerialNumber, ModelNumber FROM tblOthers where Status = 0", conn);
-                    MySqlDataAdapter da1 = new MySqlDataAdapter(cmd1);
-                    da1.Fill(dtDCItem);
+                    if (chkItem == "Desktop")
+                    {
+                        MySqlCommand cmd1 = new MySqlCommand("SELECT SerialNumber, ModelNumber FROM tblDesktop where Status = 0", conn);
+                        MySqlDataAdapter da1 = new MySqlDataAdapter(cmd1);
+                        da1.Fill(dtDCItem);
+
+                    }
+                    if (chkItem == "Laptop")
+                    {
+                        MySqlCommand cmd1 = new MySqlCommand("SELECT SerialNumber, ModelNumber FROM tblLaptop where Status = 0", conn);
+                        MySqlDataAdapter da1 = new MySqlDataAdapter(cmd1);
+                        da1.Fill(dtDCItem);
+                    }
+                    if (chkItem == "Server")
+                    {
+                        MySqlCommand cmd1 = new MySqlCommand("SELECT SerialNumber, ModelNumber FROM tblServer where Status = 0", conn);
+                        MySqlDataAdapter da1 = new MySqlDataAdapter(cmd1);
+                        da1.Fill(dtDCItem);
+
+                    }
+                    if (chkItem == "Printer")
+                    {
+                        MySqlCommand cmd1 = new MySqlCommand("SELECT SerialNumber, ModelNumber FROM tblPrinter where Status = 0", conn);
+                        MySqlDataAdapter da1 = new MySqlDataAdapter(cmd1);
+                        da1.Fill(dtDCItem);
+
+                    }
+                    if (chkItem == "Projector")
+                    {
+                        MySqlCommand cmd1 = new MySqlCommand("SELECT SerialNumber, ModelNumber FROM tblProjector where Status = 0", conn);
+                        MySqlDataAdapter da1 = new MySqlDataAdapter(cmd1);
+                        da1.Fill(dtDCItem);
+
+                    }
+                    if (chkItem == "Mobile")
+                    {
+                        MySqlCommand cmd1 = new MySqlCommand("SELECT SerialNumber, ModelNumber FROM tblMobile where Status = 0", conn);
+                        MySqlDataAdapter da1 = new MySqlDataAdapter(cmd1);
+                        da1.Fill(dtDCItem);
+
+                    }
+                    if (chkItem == "Tablet")
+                    {
+                        MySqlCommand cmd1 = new MySqlCommand("SELECT SerialNumber, ModelNumber FROM tblTablet where Status = 0", conn);
+                        MySqlDataAdapter da1 = new MySqlDataAdapter(cmd1);
+                        da1.Fill(dtDCItem);
+
+                    }
+                    if (chkItem == "Accessories")
+                    {
+                        MySqlCommand cmd1 = new MySqlCommand("SELECT SerialNumber, ModelNumber FROM tblAccessories where Status = 0", conn);
+                        MySqlDataAdapter da1 = new MySqlDataAdapter(cmd1);
+                        da1.Fill(dtDCItem);
+
+                    }
+                    if (chkItem == "Others")
+                    {
+                        MySqlCommand cmd1 = new MySqlCommand("SELECT SerialNumber, ModelNumber FROM tblOthers where Status = 0", conn);
+                        MySqlDataAdapter da1 = new MySqlDataAdapter(cmd1);
+                        da1.Fill(dtDCItem);
+                    }
+
+                    conn.Close();
+ 
                 }
                 
-                conn.Close();
 
                 string result = string.Empty;
                 List<string> lstStrRow = new List<string>();
@@ -97,9 +116,15 @@ namespace Bhanusa
                     {
                         lstStrRow.Add(dtDCItem.Rows[i]["SerialNumber"].ToString() + "^" + dtDCItem.Rows[i]["ModelNumber"].ToString());
                     }
-
-                    context.Response.Write(jSerialize.Serialize(lstStrRow));
                 }
+                if (dtRepoItem.Rows.Count != 0)
+                {
+                    for (int i = 0; i <= dtRepoItem.Rows.Count - 1; i++)
+                    {
+                        lstStrRow.Add(dtRepoItem.Rows[i][chkDCItem[0]].ToString());
+                    }
+                }
+                context.Response.Write(jSerialize.Serialize(lstStrRow));
             }
         }
 

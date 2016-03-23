@@ -3,6 +3,7 @@ var id;
 function repotable() {
     closediv();
     $('#divRpot').show();
+    $('#divSearch').show();
 }
 function FUC(id) {
 
@@ -37,8 +38,7 @@ function FUC(id) {
             break;
     }
     if (conString == "tblDC" || conString == "tblEmployeeDetails" || conString == "tblPO") {
-        closelab();
-        $("#tblStock").hide();
+        $("#tblRepoStock").hide();
         $("#tblRepo").show();
         var fin = conString;
         try {
@@ -71,7 +71,7 @@ function FUC(id) {
                         '</tr>' + '</hr>');
 
                     var len = $('#tblRepo tbody tr').length;
-
+                    $('#label2').text(len);
                 }
 
             }
@@ -80,6 +80,7 @@ function FUC(id) {
     }
     else {
         $("#tblRepo").hide();
+        $("#divSearch").show();
         var fin = conString;
         try {
             $.ajax({
@@ -121,13 +122,38 @@ function FUC(id) {
                 }
             }
             var len = $('#tblRepoStock tbody tr').length;
-            $('#label1').text(len);
+            $('#label2').text(len);
 
         }
         $("#tblRepoStock tbody").empty();
-        
+    }
+}
+function fucSearch() {
+    var selectedVal;
+    selectedVal = $('#ddlSearch option:selected').text() + "," + conString;
+    try {
+        $.ajax({
+            type: "POST",
+            url: "GetItemDetails.ashx",
+            cache: false,
+            data: selectedVal,
+            dataType: "json",
+            success: getRepotItem,
+            error: function getFail(cpnmsg) {
+                alert(cpnmsg.Response);
+            }
+        });
+    } 
+    catch (e) {
     }
 
+    }
+function getRepotItem(srcres) {
+    var searchitm = [];
+    for (var i = 0; i <= srcres.length - 1; i++) {
+        searchitm.push(srcres[i]);
+    }
+    $('#txt1').autocomplete({
+        source: searchitm
+    });
 }
-
-
