@@ -12,6 +12,7 @@
     <link href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.9.2/themes/blitzer/jquery-ui.css" rel="Stylesheet" type="text/css" />
     <script type="text/javascript" src="//cdn.rawgit.com/MrRio/jsPDF/master/dist/jspdf.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/2.0.16/jspdf.plugin.autotable.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/1.2.0/list.min.js"></script>
     <script type="text/javascript" src="//cdn.rawgit.com/niklasvh/html2canvas/0.5.0-alpha2/dist/html2canvas.min.js"></script>
     <script src="js/jquery.dynDateTime.min.js" type="text/javascript"></script>
     <script src="js/calendar-en.min.js" type="text/javascript"></script>
@@ -20,6 +21,7 @@
     <script type="text/javascript" src="../js/StockTable.js"></script>
     <script type="text/javascript" src="../js/POTable.js"></script>
     <script type="text/javascript" src="../js/REPTable.js"></script>
+
 
     <!--Employee Page-->
     <script type="text/javascript">
@@ -627,12 +629,10 @@
                 <option value="0">--Select--</option>
                 <option value="1">SerialNumber</option>
                 <option value="2">ModelNumber</option>
-                <option value="3">DCNo</option>
-                <option value="4">Company</option>
+                <option value="3">Company</option>
             </select>
             <input type="text" id="txt1" autocomplete="on" onclick="fucSearch();" <%--style="margin: 0.2% 2px 10px 685px;"--%>" />
-            <input type="button" value="Search" id="btnSearch" />
-            <label id="strGetId" style="display:none"></label>
+            <input type="button" value="Search" id="btnSearch"  onclick="btnSearch()"/>
             </div>
      
          <table id="tblRepoStock" class="tblPO" style="display: none">

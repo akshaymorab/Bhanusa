@@ -37,7 +37,7 @@ function FUC(id) {
         default: conString = "";
             break;
     }
-    if (conString == "tblDC" || conString == "tblEmployeeDetails" || conString == "tblPO") {
+    if (conString == "tblDC" || conString == "tblCompany" || conString == "tblPO") {
         $("#tblRepoStock").hide();
         $("#tblRepo").show();
         var fin = conString;
@@ -110,8 +110,8 @@ function FUC(id) {
                     rwDt = tblStockDt[i].split(';');
                     $("#tblRepoStock tbody").append(
                         '<tr>' +
-                        '<td><div style="color:black; right:inherit">' + rwDt[0] + '</div></td>' +
-                        '<td><div style="color:black; right:inherit">' + rwDt[1] + '</div></td>' +
+                        '<td><div style="color:black; class="srno" right:inherit">' + rwDt[0] + '</div></td>' +
+                        '<td><div style="color:black; class="mdno" right:inherit">' + rwDt[1] + '</div></td>' +
                         '<td><div style="color:black; right:inherit">' + rwDt[2] + '</div></td>' +
                         '<td><div style="color:black; right:inherit">' + rwDt[3] + '</div></td>' +
                         '<td><div style="color:black; right:inherit">' + rwDt[4] + '</div></td>' +
@@ -147,7 +147,7 @@ function fucSearch() {
     catch (e) {
     }
 
-    }
+}
 function getRepotItem(srcres) {
     var searchitm = [];
     for (var i = 0; i <= srcres.length - 1; i++) {
@@ -156,4 +156,37 @@ function getRepotItem(srcres) {
     $('#txt1').autocomplete({
         source: searchitm
     });
+}
+function btnSearch() {
+    var strItem = $("#txt1").val();
+    var arrStr = [];
+    
+    var Len = $("#tblRepoStock tbody tr").length;
+    for(var i=0;i<Len-1;i++){
+      var chk =  $("#tblRepoStock tbody tr td:nth-child(1)").eq(i-1).text();
+      if (strItem == chk) {
+          var chk1 = $("#tblRepoStock tbody tr td:nth-child(2)").eq(i - 1).text();
+          var chk2 = $("#tblRepoStock tbody tr td:nth-child(3)").eq(i - 1).text();
+          var chk3 = $("#tblRepoStock tbody tr td:nth-child(4)").eq(i - 1).text();
+          var chk4 = $("#tblRepoStock tbody tr td:nth-child(5)").eq(i - 1).text();
+          var chk5 = $("#tblRepoStock tbody tr td:nth-child(6)").eq(i - 1).text();
+          var chk6 = $("#tblRepoStock tbody tr td:nth-child(7)").eq(i - 1).text();
+          var chk7 = $("#tblRepoStock tbody tr td:nth-child(8)").eq(i - 1).text();
+          $("#tblRepoStock tbody tr").remove();
+          Len = 1;
+          $("#tblRepoStock tbody").append(
+                       '<tr>' +
+                       '<td><div style="color:black; right:inherit">' + chk + '</div></td>' +
+                       '<td><div style="color:black; right:inherit">' + chk1 + '</div></td>' +
+                       '<td><div style="color:black; right:inherit">' + chk2 + '</div></td>' +
+                       '<td><div style="color:black; right:inherit">' + chk3 + '</div></td>' +
+                       '<td><div style="color:black; right:inherit">' + chk4 + '</div></td>' +
+                       '<td><div style="color:black; right:inherit">' + chk5 + '</div></td>' +
+                       '<td><div style="color:black; right:inherit">' + chk6 + '</div></td>' +
+                       '<td><div style="color:black; right:inherit">' + chk7 + '</div></td>' +
+                       '</tr>' + '</hr>');
+         
+      }
+    }
+
 }
