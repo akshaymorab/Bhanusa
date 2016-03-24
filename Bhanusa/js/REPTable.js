@@ -125,37 +125,56 @@ function fucSearch() {
     var selectedVal;
     selectedVal = $('#ddlSearch option:selected').text() + "," + conString;
     var splitVal = selectedVal.split(',');
-    if ( splitVal[0]=="Company" ) {
-        var strCmp = [];
-        var tbllen = $("#tblRepoStock tbody tr").length;
+    var strCmp = [];
+    var tbllen = $("#tblRepoStock tbody tr").length;
+    if (splitVal[0] == "--Select--") {
+        alert("Please Select from the dropdown below");
+    }
+    else if (splitVal[0] == "Company") {
         for (var i = 0; i <= tbllen; i++) {
             strCmp[i] = $("#tblRepoStock tbody tr td:nth-child(5)").eq(i-1).text();
         }
+        getRepotItem(strCmp);
+    }
+    //else {
+    //    try {
+    //        $.ajax({
+    //            type: "POST",
+    //            url: "GetItemDetails.ashx",
+    //            cache: false,
+    //            data: selectedVal,
+    //            dataType: "json",
+    //            success: getRepotItem,
+    //            error: function getFail(cpnmsg) {
+    //                alert(cpnmsg.Response);
+    //            }
+    //        });
+    //    }
+    //    catch (e) {
+    //    }
+    //}
+    else if (splitVal[0] == "SerialNumber") {
+        for (var i = 0; i <= tbllen; i++) {
+            strCmp[i] = $("#tblRepoStock tbody tr td:nth-child(1)").eq(i - 1).text();
+        }
         getRepotItem(strCmp)
     }
-    else {
-        try {
-            $.ajax({
-                type: "POST",
-                url: "GetItemDetails.ashx",
-                cache: false,
-                data: selectedVal,
-                dataType: "json",
-                success: getRepotItem,
-                error: function getFail(cpnmsg) {
-                    alert(cpnmsg.Response);
-                }
-            });
+    else{
+        for (var i = 0; i <= tbllen; i++) {
+            strCmp[i] = $("#tblRepoStock tbody tr td:nth-child(2)").eq(i - 1).text();
         }
-        catch (e) {
-        }
+        getRepotItem(strCmp)
     }
 }
 function getRepotItem(srcres) {
     var searchitm = [];
-    for (var i = 0; i <= srcres.length - 1; i++) {
-        searchitm.push(srcres[i]);
-    }
+    //for (var i = 0; i <= srcres.length - 1; i++) {
+        //searchitm.push(srcres[i]);
+        $.each(srcres, function (i, el) {
+            if ($.inArray(el, searchitm) === -1) searchitm.push(el);
+        });
+
+    //}
     $('#txt1').autocomplete({
         source: searchitm
     });
@@ -166,7 +185,7 @@ function btnSearch() {
     var strCth;
     var ddlSelect = $("#ddlSearch").val();
     var tblLen = $("#tblRepoStock tbody tr").length;
-    for (var i = 0; i < tblLen - 1; i++) {
+    for (var i = 0; i <= tblLen - 1; i++) {
         if (ddlSelect == 1) {
             strCth = $("#tblRepoStock tbody tr td:nth-child(1)").eq(i - 1).text();
         }
@@ -234,4 +253,17 @@ function openSearch() {
     $('#txt1').show();
     $('#btnSearch').show();
     $('#ddlSearch').show();
+    $('#txt1').val("");
+    $('#ddlSearch').val("0");
+    
+}
+function dupRemove(strCpm) {
+    var count = 0;
+    for (var i = 0; i < $('#tblRepoStock tbody tr').length; i++) {
+        for (var j = 1; j < ('#tblRepoStock tbody tr').length; j++) {
+            if (strCpm[i] == strCpm[j]) {
+                count = count;
+            }
+        }
+    }
 }
