@@ -124,22 +124,32 @@ function FUC(id) {
 function fucSearch() {
     var selectedVal;
     selectedVal = $('#ddlSearch option:selected').text() + "," + conString;
-    try {
-        $.ajax({
-            type: "POST",
-            url: "GetItemDetails.ashx",
-            cache: false,
-            data: selectedVal,
-            dataType: "json",
-            success: getRepotItem,
-            error: function getFail(cpnmsg) {
-                alert(cpnmsg.Response);
-            }
-        });
+    var splitVal = selectedVal.split(',');
+    if ( splitVal[0]=="Company" ) {
+        var strCmp = [];
+        var tbllen = $("#tblRepoStock tbody tr").length;
+        for (var i = 0; i <= tbllen; i++) {
+            strCmp[i] = $("#tblRepoStock tbody tr td:nth-child(5)").eq(i-1).text();
+        }
+        getRepotItem(strCmp)
     }
-    catch (e) {
+    else {
+        try {
+            $.ajax({
+                type: "POST",
+                url: "GetItemDetails.ashx",
+                cache: false,
+                data: selectedVal,
+                dataType: "json",
+                success: getRepotItem,
+                error: function getFail(cpnmsg) {
+                    alert(cpnmsg.Response);
+                }
+            });
+        }
+        catch (e) {
+        }
     }
-
 }
 function getRepotItem(srcres) {
     var searchitm = [];
