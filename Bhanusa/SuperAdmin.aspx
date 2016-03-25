@@ -21,6 +21,7 @@
     <script type="text/javascript" src="../js/StockTable.js"></script>
     <script type="text/javascript" src="../js/POTable.js"></script>
     <script type="text/javascript" src="../js/REPTable.js"></script>
+    <script type="text/javascript" src="../js/tableToExcel.js"></script>
 
 
     <!--Employee Page-->
@@ -619,57 +620,61 @@
         <input type="button" id="btn10" value="Tablet" class="btn" onclick="FUC(this.id);" />
         <input type="button" id="btn11" value="Accessories" class="btn" onclick="FUC(this.id);" />
         <input type="button" id="btn12" value="Others" class="btn" onclick="FUC(this.id);" /><br />
-        <div id="divSearch" class="table" style="display:none">
-            <label id="label1">Count:</label><label id="label2" style="margin:0.4%"></label><label id="strRent">Rent</label><label id="label3" style="margin:0.4%"></label><label id="strInStock">InStock:</label><label id="label4" style="margin:0.4%"></label>
+        <div id="divSearch" class="table" style="display: none">
+            <label id="label1">Count:</label><label id="label2" style="margin: 0.4%"></label><label id="strRent">Rent</label><label id="label3" style="margin: 0.4%"></label><label id="strInStock">InStock:</label><label id="label4" style="margin: 0.4%"></label>
             <label id="strColmn">Select Column:</label>
-            <select id="ddlSearch" style="display:none">
+            <select id="ddlSearch" style="display: none">
                 <option value="0">--Select--</option>
                 <option value="1">SerialNumber</option>
                 <option value="2">ModelNumber</option>
                 <option value="3">Company</option>
                 <option value="4">DCNo</option>
             </select>
-             <select id="ddlDC" style="display:none">
+            <select id="ddlDC" style="display: none">
                 <option value="0">--Select--</option>
                 <option value="1">DCNo</option>
                 <option value="2">Company</option>
                 <option value="3">Date</option>
             </select>
-            
-            <input type="text" id="txt1" autocomplete="on" onclick="fucSearch();" <%--style="margin: 0.2% 2px 10px 685px;"--%>" />
-            <input type="button" value="Search" id="btnSearch"  onclick="btnSearch()"/>
-            <input type="button" value="Export" id="btnETE"  onclick="btnExcel()"/>
-            </div>
-     
-         <table id="tblRepoStock" class="tblPO" style="display: none">
-            <thead>
-                <tr>
-                    <th class="chkouttblhead">Serial Number</th>
-                    <th class="chkouttblhead">Model Number</th>
-                    <th class="chkouttblhead">StockStatus</th>
-                    <th class="chkouttblhead">DC No</th>
-                    <th class="chkouttblhead">Company</th>
-                    <th class="chkouttblhead">Configuration</th>
-                    <th class="chkouttblhead">DCStatus</th>
-                    <th class="chkouttblhead">Quantity</th>
 
-                </tr>
-            </thead>
-            <tbody>
-            </tbody>
-        </table>
-        <table id="tblRepo" class="tblPO" style="display: none">
-            <thead>
-                <tr>
-                    <th class="chkouttblhead">DC NO.</th>
-                    <th class="chkouttblhead">COMPANY</th>
-                    <%--<th class="chkouttblhead">PO NO.</th>--%>
-                    <th class="chkouttblhead">DATE</th>
-                </tr>
-            </thead>
-            <tbody>
-            </tbody>
-        </table>
+            <input type="text" id="txt1" autocomplete="on" onclick="fucSearch();" />
+            <input type="button" value="Search" id="btnSearch" onclick="btnSearch()" />
+            <input type="button" value="Export" id="btnETE" onclick="btnExcel()" />
+        </div>
+
+        <div id="divRepoStock">
+            <table id="tblRepoStock" class="tblPO" style="display: none">
+                <thead>
+                    <tr>
+                        <th class="chkouttblhead">Serial Number</th>
+                        <th class="chkouttblhead">Model Number</th>
+                        <th class="chkouttblhead">StockStatus</th>
+                        <th class="chkouttblhead">DC No</th>
+                        <th class="chkouttblhead">Company</th>
+                        <th class="chkouttblhead">Configuration</th>
+                        <th class="chkouttblhead">DCStatus</th>
+                        <th class="chkouttblhead">Quantity</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <div id="divRepo">
+            <table id="tblRepo" class="tblPO" style="display: none">
+                <thead>
+                    <tr>
+                        <th class="chkouttblhead">DC NO.</th>
+                        <th class="chkouttblhead">COMPANY</th>
+                        <%--<th class="chkouttblhead">PO NO.</th>--%>
+                        <th class="chkouttblhead">DATE</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
     </div>
     <!--End Report-->
 

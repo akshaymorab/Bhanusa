@@ -355,3 +355,31 @@ function openSearch() {
     $('#txt1').val("");
     $('#ddlSearch').val("0");
 }
+
+//Export to Excel Reports
+function btnExcel() {
+    if (conString == "tblDC") {
+        var a = document.createElement('a');
+        //getting data from our div that contains the HTML table
+        var data_type = 'data:application/vnd.ms-excel';
+        var table_div = document.getElementById('divRepo');
+        var table_html = table_div.outerHTML.replace(/ /g, '%20');
+        a.href = data_type + ', ' + table_html;
+        //setting the file name
+        a.download = 'DC_Report.xls';
+        //triggering the function
+        a.click();
+    }
+    else {
+        var a = document.createElement('a');
+        //getting data from our div that contains the HTML table
+        var data_type = 'data:application/vnd.ms-excel';
+        var table_div = document.getElementById('divRepoStock');
+        var table_html = table_div.outerHTML.replace(/ /g, '%20');
+        a.href = data_type + ', ' + table_html;
+        //setting the file name
+        a.download = conString + '_Report.xls';
+        //triggering the function
+        a.click();
+    }
+}
