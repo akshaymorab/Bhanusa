@@ -14,7 +14,7 @@ namespace Bhanusa
     public class GetDesktopDetails : IHttpHandler
     {
         static string strCon = ConfigurationManager.ConnectionStrings["ApplicationServices"].ConnectionString;
-
+        string stkSts, dcSts;
         public void ProcessRequest(HttpContext context)
         {
             string jsonStr = string.Empty;
@@ -40,7 +40,16 @@ namespace Bhanusa
                     {
                         string st = string.Empty;
                         st = dt.Rows[i]["RentCode"].ToString();
-
+                        stkSts = dt.Rows[i]["Status"].ToString();
+                        if (stkSts == "0")
+                        {
+                            stkSts = "InStock";
+                        }
+                        else
+                        {
+                            stkSts = "Rent";
+                        }
+                        
                         if (st != "")
                         {
                             strRent = st.Split('r');
@@ -50,21 +59,35 @@ namespace Bhanusa
                                 DataTable dt1 = new DataTable();
                                 MySqlConnection con1 = new MySqlConnection(strCon);
                                 con1.Open();
-                                MySqlCommand cmd1 = new MySqlCommand("SELECT Configuration, Quantity, Status, (SELECT Company From tblDC WHERE DCNo=" + dcno + ") AS Company FROM tblRentItem WHERE RentCode='" + st + "'", con1);
+                                MySqlCommand cmd1 = new MySqlCommand("SELECT Configuration, Status, Quantity, (SELECT Company From tblDC WHERE DCNo=" + dcno + ") AS Company FROM tblRentItem WHERE RentCode='" + st + "'", con1);
                                 MySqlDataAdapter da1 = new MySqlDataAdapter(cmd1);
                                 da1.Fill(dt1);
                                 con1.Close();
                                 int sts =Convert.ToInt32(dt.Rows[i]["Status"].ToString());
                                 if (dt1.Rows.Count != 0 && sts != 0)
                                 {
+                                    
+                                    dcSts = dt1.Rows[0]["Status"].ToString();
+                                    if (dcSts == "1")
+                                    {
+                                        dcSts = "Addition";
+                                    }
+                                    if (dcSts == "2")
+                                    {
+                                        dcSts = "AdvanceRep";
+                                    }
+                                    if (dcSts == "3")
+                                    {
+                                        dcSts = "Returned";
+                                    }
                                     if (i == 0)
                                     {
-                                        str = dt.Rows[i]["SerialNumber"].ToString() + ";" + dt.Rows[i]["ModelNumber"].ToString() + ";" + dt.Rows[i]["Status"].ToString() + ";" + strRent[0] + ";" + dt1.Rows[0]["Company"].ToString() + ";" + dt1.Rows[0]["Configuration"].ToString() + ";" + dt1.Rows[0]["Quantity"].ToString() + ";" + dt1.Rows[0]["Status"].ToString();
+                                        str = dt.Rows[i]["SerialNumber"].ToString() + ";" + dt.Rows[i]["ModelNumber"].ToString() + ";" + stkSts + ";" + strRent[0] + ";" + dt1.Rows[0]["Company"].ToString() + ";" + dt1.Rows[0]["Configuration"].ToString() + ";" + dcSts + ";" + dt1.Rows[0]["Quantity"].ToString();
 
                                     }
                                     else
                                     {
-                                        str = str + "%" + dt.Rows[i]["SerialNumber"].ToString() + ";" + dt.Rows[i]["ModelNumber"].ToString() + ";" + dt.Rows[i]["Status"].ToString() + ";" + strRent[0] + ";" + dt1.Rows[0]["Company"].ToString() + ";" + dt1.Rows[0]["Configuration"].ToString() + ";" + dt1.Rows[0]["Quantity"].ToString() + ";" + dt1.Rows[0]["Status"].ToString();
+                                        str = str + "%" + dt.Rows[i]["SerialNumber"].ToString() + ";" + dt.Rows[i]["ModelNumber"].ToString() + ";" + stkSts + ";" + strRent[0] + ";" + dt1.Rows[0]["Company"].ToString() + ";" + dt1.Rows[0]["Configuration"].ToString() + ";" + dcSts + ";" + dt1.Rows[0]["Quantity"].ToString();
 
                                     }
                                 }
@@ -76,12 +99,12 @@ namespace Bhanusa
                         {
                             if (i == 0)
                             {
-                                str = dt.Rows[i]["SerialNumber"].ToString() + ";" + dt.Rows[i]["ModelNumber"].ToString() + ";" + dt.Rows[i]["Status"].ToString() + ";" + "--" + ";" + "--" + ";" + "--"  +";" + "--"  +";" + "--";
+                                str = dt.Rows[i]["SerialNumber"].ToString() + ";" + dt.Rows[i]["ModelNumber"].ToString() + ";" + stkSts + ";" + "--" + ";" + "--" + ";" + "--"  +";" + "--"  +";" + "--";
 
                             }
                             else
                             {
-                                str = str + "%" + dt.Rows[i]["SerialNumber"].ToString() + ";" + dt.Rows[i]["ModelNumber"].ToString() + ";" + dt.Rows[i]["Status"].ToString() + ";" + "--" + ";" + "--" + ";" + "--" + ";" + "--" + ";" + "--";
+                                str = str + "%" + dt.Rows[i]["SerialNumber"].ToString() + ";" + dt.Rows[i]["ModelNumber"].ToString() + ";" + stkSts + ";" + "--" + ";" + "--" + ";" + "--" + ";" + "--" + ";" + "--";
 
                             }
                         }

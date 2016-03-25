@@ -610,8 +610,6 @@
     <!--Report-->
     <div id="divRpot" class="table" style="margin: 5% 5px 0 20px; display: none;">
         <input type="button" id="btn1" value="DC" class="btn" onclick="FUC(this.id);" />
-        <input type="button" id="btn2" value="User" class="btn"/>
-        <input type="button" id="btn3" value="PO" class="btn" onclick="FUC(this.id);" />
         <input type="button" id="btn4" value="Desktop" class="btn" onclick="FUC(this.id);" />
         <input type="button" id="btn5" value="Laptop" class="btn" onclick="FUC(this.id);" />
         <input type="button" id="btn6" value="Server" class="btn" onclick="FUC(this.id);" />
@@ -620,19 +618,27 @@
         <input type="button" id="btn9" value="Mobile" class="btn" onclick="FUC(this.id);" />
         <input type="button" id="btn10" value="Tablet" class="btn" onclick="FUC(this.id);" />
         <input type="button" id="btn11" value="Accessories" class="btn" onclick="FUC(this.id);" />
-        <input type="button" id="btn12" value="Others" class="btn" onclick="FUC(this.id);" />
-        <input type="button" id="btn13" value="Company" class="btn" onclick="FUC(this.id);" /><br />
-        <div id="divSearch" class="table">
-            <label id="label1">Count:</label><label id="label2"></label><label id="strRent">Rent</label><label id="label3"></label><label id="strInStock">In Stock:</label><label id="label4"></label>
+        <input type="button" id="btn12" value="Others" class="btn" onclick="FUC(this.id);" /><br />
+        <div id="divSearch" class="table" style="display:none">
+            <label id="label1">Count:</label><label id="label2" style="margin:0.4%"></label><label id="strRent">Rent</label><label id="label3" style="margin:0.4%"></label><label id="strInStock">InStock:</label><label id="label4" style="margin:0.4%"></label>
             <label id="strColmn">Select Column:</label>
-            <select id="ddlSearch">
+            <select id="ddlSearch" style="display:none">
                 <option value="0">--Select--</option>
                 <option value="1">SerialNumber</option>
                 <option value="2">ModelNumber</option>
                 <option value="3">Company</option>
+                <option value="4">DCNo</option>
             </select>
+             <select id="ddlDC" style="display:none">
+                <option value="0">--Select--</option>
+                <option value="1">DCNo</option>
+                <option value="2">Company</option>
+                <option value="3">Date</option>
+            </select>
+            
             <input type="text" id="txt1" autocomplete="on" onclick="fucSearch();" <%--style="margin: 0.2% 2px 10px 685px;"--%>" />
             <input type="button" value="Search" id="btnSearch"  onclick="btnSearch()"/>
+            <input type="button" value="Export" id="btnETE"  onclick="btnExcel()"/>
             </div>
      
          <table id="tblRepoStock" class="tblPO" style="display: none">
@@ -640,11 +646,11 @@
                 <tr>
                     <th class="chkouttblhead">Serial Number</th>
                     <th class="chkouttblhead">Model Number</th>
-                    <th class="chkouttblhead">Status-1</th>
+                    <th class="chkouttblhead">StockStatus</th>
                     <th class="chkouttblhead">DC No</th>
                     <th class="chkouttblhead">Company</th>
                     <th class="chkouttblhead">Configuration</th>
-                    <th class="chkouttblhead">Status-2</th>
+                    <th class="chkouttblhead">DCStatus</th>
                     <th class="chkouttblhead">Quantity</th>
 
                 </tr>
