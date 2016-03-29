@@ -383,3 +383,6 @@ function btnExcel() {
         a.click();
     }
 }
+function fucClose(cls) {
+
+}

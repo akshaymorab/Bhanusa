@@ -113,9 +113,11 @@ function genTbl(serialnumb, rntcd) {
        /*9*/    '<td class="btd"><div class="divrtcode" style="display:none">' + rtCode + '</div></td>' +
        /*10*/   '<td class="btd"><div class="divparticular" style="display:none"></div></td>' +
        /*11*/   '<td class="btd"><div class="divStatus" style="display:none"></div></td>' +
+                '<td> <div class="btnclose1" id="btnClr">X</div> </td>'+
                 '</tr>' + '<hr/>');
     $(".ddlParticular").unbind('change').bind('change', selItm);
     $(".ddlStatus").unbind('change').bind('change', selSts);
+    $(".btnclose1").unbind('click').bind('click', funClose);
 }
 
 //Edit DC Details
@@ -169,7 +171,7 @@ function editDC() {
                 '<td><input type="text" class="txtModelNo"/></td>' +
                 '<td><input type="text" class="qty" /></td>' +
                 '<td><input type="text" class="remarks"/></div></td>' +
-                '<td><div class="tabstyle1"><select class="ddlStatus"><option value="0">--Select--</option><option value="1">Addition</option><option value="2">Advance Rep.</option><option value="3">Returned</option></select></div></td>' +
+                '<td><div class="tabstyle1"><select class="ddlStatus" onchange="funHist()"><option value="0">--Select--</option><option value="1">Addition</option><option value="2">Advance Rep.</option><option value="3">Returned</option></select></div></td>' +
                 '<td class="btd"><div class="divrwitm" style="display:none">' + mdln + '</div></td>' +
                 '<td class="btd"><div class="divrtcode" style="display:none">' + rntDet[4] + '</div></td>' +
                 '<td class="btd"><div class="divparticular" style="display:none">' + rntDet[0] + '</div></td>' +
@@ -266,4 +268,57 @@ function selSts() {
         selectedVal = $(this).find('.ddlStatus option:selected').val();
         $('#tblDCDetails tbody tr td:nth-child(11)').eq(len - 1).html('<div class="divStatus" style="display:none">' + selectedVal + '</div>');
     });
+}
+//Delete Row
+function funClose() {
+    $('#btnAddDCItem').hide();
+    $('#btnUpdtDCItem').show();
+    $("#btnDCPdf").show();
+    var rw = $(this).parent().parent();
+    rw.remove();
+}
+function funHist(){
+    if ($('#addMoreRows(btnUpdtDcItem').click() == true) {
+        try {
+            $.ajax({
+                type: "POST",
+                url: "tblRentHistory.ashx",
+                cache: false,
+                data: text,
+                dataType: "json",
+                success: logsuc,
+                error: function logerr(msg) {
+                    alert(msg.Response);
+                }
+            })
+        }
+        catch (e) {
+            alert(e.message);
+        }
+        function logsuc(logmsg) {
+            $('#tblRentHistory').show();
+            var tblUserDt = gtus.Response;
+            tblUserDt = tblUserDt.split('%');
+            var rowLength = tblUserDt.length;
+            if (rowLength != 0) {
+                for (var i = 0; i <= rowLength - 1; i++) {
+                    var rwDt = tblUserDt[i].split(';');
+                    $("#tblRentHistory tbody").append(
+                        '<tr>' +
+                        '<td><div style="color:black; right:inherit">' + rwDt[0] + '</div></td>' +
+                        '<td><div style="color:black; right:inherit">' + rwDt[1] + '</div></td>' +
+                        '<td><div style="color:black; right:inherit">' + rwDt[2] + '</div></td>' +
+                        '<td><div style="color:black; right:inherit">' + rwDt[3] + '</div></td>' +
+                        '<td><div style="color:black; right:inherit">' + rwDt[4] + '</div></td>' +
+                        '<td><div style="color:black; right:inherit">' + rwDt[5] + '</div></td>' +
+                        '</tr>' + '</hr>');
+
+                    var len = $('#tblRentHistory tbody tr').length;
+
+                }
+            }
+        }
+
+    }
+
 }

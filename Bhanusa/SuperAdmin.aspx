@@ -715,6 +715,7 @@
                         <label id="lblRemarks" class="dclabel">Remarks:&nbsp &nbsp &nbsp</label>
                         <input type="text" class="dctext" name="address" autocomplete="off" required="required" id="txtRemarks" />
                     </div>
+                  
                     <table id="tblDCDetails" style="width: 100%">
                         <thead>
                             <tr>
@@ -725,6 +726,21 @@
                                 <th class="chkouttblhead">Quantity</th>
                                 <th class="chkouttblhead">Model Number</th>
                                 <th class="chkouttblhead">Status</th>
+                                <th>Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                    <table id="tblRentHistory" style="width: 100%; display:none">
+                        <thead>
+                            <tr>
+                                <th class="chkouttblhead">DCNo</th>
+                                <th class="chkouttblhead">Company</th>
+                                <th class="chkouttblhead">SerialNumber</th>
+                                <th class="chkouttblhead">ModelNumber</th>
+                                <th class="chkouttblhead">Model Number</th>
+                                <th class="chkouttblhead">Quantity</th>
                             </tr>
                         </thead>
                         <tbody>
