@@ -130,9 +130,6 @@
     <Compile Include="PostPODetail.ashx.cs">
       <DependentUpon>PostPODetail.ashx</DependentUpon>
     </Compile>
-    <Compile Include="postRentHistory.ashx.cs">
-      <DependentUpon>postRentHistory.ashx</DependentUpon>
-    </Compile>
     <Compile Include="PostStockDetail.ashx.cs">
       <DependentUpon>PostStockDetail.ashx</DependentUpon>
     </Compile>
@@ -164,7 +161,6 @@
     <Content Include="PostPODetail.ashx" />
     <Content Include="GetbtnDCDetails.ashx" />
     <Content Include="GetDesktopDetails.ashx" />
-    <Content Include="postRentHistory.ashx" />
     <None Include="Properties\PublishProfiles\ZRB.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

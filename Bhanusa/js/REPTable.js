@@ -31,13 +31,14 @@ function FUC(id) {
             break;
         case "btn12": conString = "tblOthers";
             break;
-        case "btn13": conString = "tblCompany";
+        case "btn13": conString = "tblRentHistory";
             break;
         default: conString = "";
             break;
     }
     if (conString == "tblDC" || conString == "tblCompany") {
         $("#tblRepoStock").hide();
+        $("#rentHistory").hide();
         $("#tblRepo").show();
         $('#divSearch').show();
         $('#ddlSearch').hide();
@@ -83,12 +84,24 @@ function FUC(id) {
         $('#label4').hide();
         $("#tblRepo tbody").empty();
     }
-    else {
+    if (conString == "tblRentHistory") {
         $("#tblRepo").hide();
+        $("#tblRepoStock").hide();
+        $("#rentHistory").show();
         $('#divSearch').show();
         $('#ddlSearch').show();
         $('#ddlDC').hide();
-        $('#btnETE').show()
+        $('#btnETE').show();
+        openSearch();
+        //Add Code---Pending Try
+    }
+    else {
+        $("#tblRepo").hide();
+        $("#rentHistory").hide();
+        $('#divSearch').show();
+        $('#ddlSearch').show();
+        $('#ddlDC').hide();
+        $('#btnETE').show();
         openSearch();
         var fin = conString;
         try {
@@ -126,7 +139,7 @@ function FUC(id) {
             var count = 0;
             var count1 = 0;
             $('#tblRepoStock tbody tr').each(function () {
-                
+
                 var lbl = $(this).children('td:nth-child(3)').text();
                 if (lbl == "Rent") {
                     count = count + 1;

@@ -71,8 +71,16 @@ function adddcitem() {
     var srno;
     srno = len + 1;
     var rtCode = $('#txtDCNo').val();
-    rtCode = rtCode + "r" + len;
-    if (srno == 1) {
+    if (srno == 1)
+    {
+        rtCode = rtCode + "r" + len;
+    }
+    if (srno > 1) {
+        var rcd = $('#tblDCDetails tbody tr td:nth-child(9)').eq(len - 1).text();
+        rcd = rcd.split('r');
+        var p = parseInt(rcd[1]);
+        var x = p + 1;
+        rtCode = rtCode + "r" + x;
         $("#btnDCPdf").show();
         genTbl(srno, rtCode);
     }
@@ -171,7 +179,7 @@ function editDC() {
                 '<td><input type="text" class="txtModelNo"/></td>' +
                 '<td><input type="text" class="qty" /></td>' +
                 '<td><input type="text" class="remarks"/></div></td>' +
-                '<td><div class="tabstyle1"><select class="ddlStatus" onchange="funHist()"><option value="0">--Select--</option><option value="1">Addition</option><option value="2">Advance Rep.</option><option value="3">Returned</option></select></div></td>' +
+                '<td><div class="tabstyle1"><select class="ddlStatus"><option value="0">--Select--</option><option value="1">Addition</option><option value="2">Advance Rep.</option><option value="3">Returned</option></select></div></td>' +
                 '<td class="btd"><div class="divrwitm" style="display:none">' + mdln + '</div></td>' +
                 '<td class="btd"><div class="divrtcode" style="display:none">' + rntDet[4] + '</div></td>' +
                 '<td class="btd"><div class="divparticular" style="display:none">' + rntDet[0] + '</div></td>' +
@@ -260,14 +268,10 @@ function selItm() {
 
 //Change Status
 function selSts() {
-
     var srno = $(this).closest('tr').index();
-    var selectedVal;
     var len = srno + 1;
-    $('#tblDCDetails  tbody  tr').each(function () {
-        selectedVal = $(this).find('.ddlStatus option:selected').val();
-        $('#tblDCDetails tbody tr td:nth-child(11)').eq(len - 1).html('<div class="divStatus" style="display:none">' + selectedVal + '</div>');
-    });
+    var selVal = $('#tblDCDetails tbody tr td:nth-child(7)').eq(len - 1).find('option:selected').val();
+    $('#tblDCDetails tbody tr td:nth-child(11)').eq(len - 1).html('<div class="divStatus" style="display:none">' + selVal + '</div>');
 }
 //Delete Row
 function funClose() {

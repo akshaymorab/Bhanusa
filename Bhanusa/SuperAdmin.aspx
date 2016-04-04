@@ -317,7 +317,7 @@
                             rwrtcode = rwrtcode + '%' + $('#tblDCDetails tbody tr td:nth-child(9)').eq(i - 1).text();
                         }
                     }
-                    strDC = strDC + '>' + rwItem + '>' + rwMdlno + '>' + rwConfig + '>' + rwQty + '>' + rwstatus + '>' + rwrtcode + '>' + id;
+                    strDC = strDC + '>' + rwItem + '>' + rwMdlno + '>' + rwConfig + '>' + rwQty + '>' + rwstatus + '>' + rwrtcode + '>' + id + '>' + $('#txtDate').val();
                     try {
                         $.ajax({
                             type: "POST",
@@ -620,6 +620,7 @@
         <input type="button" id="btn10" value="Tablet" class="btn" onclick="FUC(this.id);" />
         <input type="button" id="btn11" value="Accessories" class="btn" onclick="FUC(this.id);" />
         <input type="button" id="btn12" value="Others" class="btn" onclick="FUC(this.id);" /><br />
+        <input type="button" id="btn13" value="History" class="btn" onclick="FUC(this.id);" /><br />
         <div id="divSearch" class="table" style="display: none">
             <label id="label1">Count:</label><label id="label2" style="margin: 0.4%"></label><label id="strRent">Rent</label><label id="label3" style="margin: 0.4%"></label><label id="strInStock">InStock:</label><label id="label4" style="margin: 0.4%"></label>
             <label id="strColmn">Select Column:</label>
@@ -654,7 +655,6 @@
                         <th class="chkouttblhead">Configuration</th>
                         <th class="chkouttblhead">DCStatus</th>
                         <th class="chkouttblhead">Quantity</th>
-
                     </tr>
                 </thead>
                 <tbody>
@@ -678,25 +678,25 @@
     </div>
     <!--End Report-->
     <!--Rent History-->
-    <div id="rentHistory" style="display:none;">
-    <table id="tblRentHistory" style="width: 100%; display:none">
-                        <thead>
-                            <tr>
-                                <th class="chkouttblhead">DCNo</th>
-                                <th class="chkouttblhead">Company</th>
-                                <th class="chkouttblhead">SerialNumber</th>
-                                <th class="chkouttblhead">ModelNumber</th>
-                                <th class="chkouttblhead">Model Number</th>
-                                <th class="chkouttblhead">Quantity</th>
-                                <th class="chkouttblhead">StartDate</th>
-                                <th class="chkouttblhead">EndDate</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                    </table>
+    <div id="rentHistory" style="display: none;">
+        <table id="tblRentHistory" style="width: 100%; display: none">
+            <thead>
+                <tr>
+                    <th class="chkouttblhead">DCNo</th>
+                    <th class="chkouttblhead">Company</th>
+                    <th class="chkouttblhead">SerialNumber</th>
+                    <th class="chkouttblhead">ModelNumber</th>
+                    <th class="chkouttblhead">Model Number</th>
+                    <th class="chkouttblhead">Quantity</th>
+                    <th class="chkouttblhead">StartDate</th>
+                    <th class="chkouttblhead">EndDate</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
     </div>
-        <!--End History-->
+    <!--End History-->
     <!--Form-->
     <div id="form" class="form">
         <!--DC-->
@@ -733,7 +733,7 @@
                         <label id="lblRemarks" class="dclabel">Remarks:&nbsp &nbsp &nbsp</label>
                         <input type="text" class="dctext" name="address" autocomplete="off" required="required" id="txtRemarks" />
                     </div>
-                  
+
                     <table id="tblDCDetails" style="width: 100%">
                         <thead>
                             <tr>
