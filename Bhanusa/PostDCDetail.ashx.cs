@@ -92,50 +92,25 @@ namespace Bhanusa
 
                             for (int i = 0; i <= strRTCode.Length - 1; i++)
                             {
-                                if (lstRent.Contains(strRTCode[i]))
-                                {
-                                    MySqlCommand cmd2 = new MySqlCommand("Update tblRentItem SET DCNo = @dcno, Particular = @particular, ModelNumber= @modelnumber, Configuration = @config, Quantity = @qty, Status = @rntstatus where RentCode = @rentcode", conn);
-                                    cmd2.Parameters.AddWithValue("@rentcode", strRTCode[i]);
-                                    cmd2.Parameters.AddWithValue("@dcno", strDCDetails[0]);
-                                    cmd2.Parameters.AddWithValue("@particular", strItem[i]);
-                                    cmd2.Parameters.AddWithValue("@modelnumber", strMdlno[i]);
-                                    cmd2.Parameters.AddWithValue("@config", strConfig[i]);
-                                    cmd2.Parameters.AddWithValue("@qty", strQty[i]);
-                                    cmd2.Parameters.AddWithValue("@rntstatus", strStatus[i]);
-                                    conn.Open();
-                                    cmd2.ExecuteNonQuery();
-                                    conn.Close();
+                                MySqlCommand cmd2 = new MySqlCommand("INSERT INTO tblRentItem VALUES (@rentcode,@dcno,@particular,@modelnumber, @config, @qty, @rntstatus)", conn);
+                                cmd2.Parameters.AddWithValue("@rentcode", strRTCode[i]);
+                                cmd2.Parameters.AddWithValue("@dcno", strDCDetails[0]);
+                                cmd2.Parameters.AddWithValue("@particular", strItem[i]);
+                                cmd2.Parameters.AddWithValue("@modelnumber", strMdlno[i]);
+                                cmd2.Parameters.AddWithValue("@config", strConfig[i]);
+                                cmd2.Parameters.AddWithValue("@qty", strQty[i]);
+                                cmd2.Parameters.AddWithValue("@rntstatus", strStatus[i]);
+                                conn.Open();
+                                cmd2.ExecuteNonQuery();
+                                conn.Close();
 
-                                    MySqlCommand cmd3 = new MySqlCommand("Update tbl" + strItem[i] + " SET Status = @status, RentCode = @rentcode where SerialNumber = @modelnumber", conn);
-                                    cmd3.Parameters.AddWithValue("@modelnumber", strMdlno[i]);
-                                    cmd3.Parameters.AddWithValue("@status", 1);
-                                    cmd3.Parameters.AddWithValue("@rentcode", strRTCode[i]);
-                                    conn.Open();
-                                    cmd3.ExecuteNonQuery();
-                                    conn.Close();
-                                }
-                                else
-                                {
-                                    MySqlCommand cmd2 = new MySqlCommand("INSERT INTO tblRentItem VALUES (@rentcode,@dcno,@particular,@modelnumber, @config, @qty, @rntstatus)", conn);
-                                    cmd2.Parameters.AddWithValue("@rentcode", strRTCode[i]);
-                                    cmd2.Parameters.AddWithValue("@dcno", strDCDetails[0]);
-                                    cmd2.Parameters.AddWithValue("@particular", strItem[i]);
-                                    cmd2.Parameters.AddWithValue("@modelnumber", strMdlno[i]);
-                                    cmd2.Parameters.AddWithValue("@config", strConfig[i]);
-                                    cmd2.Parameters.AddWithValue("@qty", strQty[i]);
-                                    cmd2.Parameters.AddWithValue("@rntstatus", strStatus[i]);
-                                    conn.Open();
-                                    cmd2.ExecuteNonQuery();
-                                    conn.Close();
-
-                                    MySqlCommand cmd3 = new MySqlCommand("Update tbl" + strItem[i] + " SET Status = @status, RentCode = @rntcode where SerialNumber = @modelnumber", conn);
-                                    cmd3.Parameters.AddWithValue("@modelnumber", strMdlno[i]);
-                                    cmd3.Parameters.AddWithValue("@status", 1);
-                                    cmd3.Parameters.AddWithValue("@rntcode", strRTCode[i]);
-                                    conn.Open();
-                                    cmd3.ExecuteNonQuery();
-                                    conn.Close();
-                                }
+                                MySqlCommand cmd3 = new MySqlCommand("Update tbl" + strItem[i] + " SET Status = @status, RentCode = @rntcode where SerialNumber = @modelnumber", conn);
+                                cmd3.Parameters.AddWithValue("@modelnumber", strMdlno[i]);
+                                cmd3.Parameters.AddWithValue("@status", 1);
+                                cmd3.Parameters.AddWithValue("@rntcode", strRTCode[i]);
+                                conn.Open();
+                                cmd3.ExecuteNonQuery();
+                                conn.Close();
                             }
 
                             string result = string.Empty;
@@ -210,6 +185,8 @@ namespace Bhanusa
                                 conn.Open();
                                 cmd3.ExecuteNonQuery();
                                 conn.Close();
+
+                                //Updt history with condition
                             }
                             else
                             {
@@ -260,6 +237,7 @@ namespace Bhanusa
                 }
             }
         }
+
 
         public bool IsReusable
         {

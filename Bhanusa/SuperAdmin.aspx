@@ -295,11 +295,10 @@
                 sernu = $('#tblDCDetails tbody tr td:nth-child(4) input').eq(tbllength - 1).val();
                 qty = $('#tblDCDetails tbody tr td:nth-child(6) input').eq(tbllength - 1).val();
                 if (selPar != "Select" && sts != "0" && conf != "" && sernu != "" && qty != "" && $('#txtCompany').val() != "") {
-                    var rwItem, rwConfig, rwQty, rwMdlno, rwstatus, rwrtcode;
+                    var rwItem, rwConfig, rwQty, rwMdlno, rwstatus, rwrtcode, rwsrno;
                     var welcome = $("#lblWelcome").text();
                     var txtwel = welcome.split(', ');
                     var strDC = $('#txtDCNo').val() + '>' + $('#txtCompany').val() + '>' + $('#txtCompAddress').val() + '>' + $('#txtLocation').val() + '>' + $('#txtRemarks').val() + '>' + txtwel[1];
-
                     for (var i = 0; i <= tbllength - 1; i++) {
                         if (i == 0) {
                             rwItem = $('#tblDCDetails tbody tr td:nth-child(10)').eq(i - 1).text();
@@ -336,14 +335,15 @@
                     function postDCSuccess(pstres) {
                         if (pstres.length != 0) {
                             closediv();
+
                             alert(pstres.Response)
+
                         }
                     }
                 }
                 else { alert("Please fill in all details"); }
             }
         }
-
         //Add stock details on DB
         function addstkitem(id) {
             var jsonStkDetail, status, dte, type;
@@ -677,8 +677,26 @@
         </div>
     </div>
     <!--End Report-->
-
-
+    <!--Rent History-->
+    <div id="rentHistory" style="display:none;">
+    <table id="tblRentHistory" style="width: 100%; display:none">
+                        <thead>
+                            <tr>
+                                <th class="chkouttblhead">DCNo</th>
+                                <th class="chkouttblhead">Company</th>
+                                <th class="chkouttblhead">SerialNumber</th>
+                                <th class="chkouttblhead">ModelNumber</th>
+                                <th class="chkouttblhead">Model Number</th>
+                                <th class="chkouttblhead">Quantity</th>
+                                <th class="chkouttblhead">StartDate</th>
+                                <th class="chkouttblhead">EndDate</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+    </div>
+        <!--End History-->
     <!--Form-->
     <div id="form" class="form">
         <!--DC-->
@@ -727,20 +745,6 @@
                                 <th class="chkouttblhead">Model Number</th>
                                 <th class="chkouttblhead">Status</th>
                                 <th>Delete</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                    </table>
-                    <table id="tblRentHistory" style="width: 100%; display:none">
-                        <thead>
-                            <tr>
-                                <th class="chkouttblhead">DCNo</th>
-                                <th class="chkouttblhead">Company</th>
-                                <th class="chkouttblhead">SerialNumber</th>
-                                <th class="chkouttblhead">ModelNumber</th>
-                                <th class="chkouttblhead">Model Number</th>
-                                <th class="chkouttblhead">Quantity</th>
                             </tr>
                         </thead>
                         <tbody>
