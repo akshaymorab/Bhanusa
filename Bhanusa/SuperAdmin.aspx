@@ -534,7 +534,7 @@
                         <th class="chkouttblhead">Particular</th>
                         <th class="chkouttblhead">Type</th>
                         <th class="chkouttblhead">Brand</th>
-                        <th class="chkouttblhead">Purchase Date</th>
+                        <th class="chkouttblhead">PurchaseDate</th>
                         <th class="chkouttblhead">Model Number</th>
                         <th class="chkouttblhead">Remarks</th>
                         <th class="chkouttblhead">Status</th>
