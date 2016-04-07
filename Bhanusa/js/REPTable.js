@@ -93,6 +93,7 @@ function FUC(id) {
         $('#ddlDC').hide();
         $('#btnETE').show();
         openSearch();
+
         //Add Code---Pending Try
     }
     else {
