@@ -9,7 +9,7 @@ function dctable() {
     try {
         $.ajax({
             type: "POST",
-            url: "GetDCDetails.ashx",
+            url: "Get/GetDCDetails.ashx",
             cache: false,
             data: fin,
             dataType: "json",
@@ -145,7 +145,7 @@ function editDC() {
     try {
         $.ajax({
             type: "POST",
-            url: "GetDCItem.ashx",
+            url: "Get/GetDCItem.ashx",
             cache: false,
             data: dcno,
             dataType: "json",
@@ -223,7 +223,7 @@ function selItm() {
         try {
             $.ajax({
                 type: "POST",
-                url: "GetItemDetails.ashx",
+                url: "Get/GetItemDetails.ashx",
                 cache: false,
                 data: selectedVal,
                 dataType: "json",

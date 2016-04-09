@@ -48,7 +48,7 @@ function FUC(id) {
         try {
             $.ajax({
                 type: "POST",
-                url: "GetbtnDCDetails.ashx",
+                url: "Get/GetbtnDCDetails.ashx",
                 cache: false,
                 data: fin,
                 dataType: "json",
@@ -95,6 +95,23 @@ function FUC(id) {
         openSearch();
 
         //Add Code---Pending Try
+            try {
+                $.ajax({
+                    type: "POST",
+                    url: "Get/GetRentHistory.ashx",
+                    cache: false,
+                    data: fin,
+                    dataType: "json",
+                    success: getDesktopSuccess,
+                    error: function getbtnFail(cpnmsg) {
+                        alert(cpnmsg.Response);
+                    }
+                });
+            }
+            catch (e) {
+            }
+            function getDesktopSuccess(det) { }
+
     }
     else {
         $("#tblRepo").hide();
@@ -108,7 +125,7 @@ function FUC(id) {
         try {
             $.ajax({
                 type: "POST",
-                url: "GetDesktopDetails.ashx",
+                url: "Get/GetDesktopDetails.ashx",
                 cache: false,
                 data: fin,
                 dataType: "json",

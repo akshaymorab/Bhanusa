@@ -90,7 +90,7 @@ function stocks(id) {
     try {
         $.ajax({
             type: "POST",
-            url: "GetStockDetails.ashx",
+            url: "Get/GetStockDetails.ashx",
             cache: false,
             data: btnid,
             dataType: "json",
@@ -211,7 +211,7 @@ function addcompdet(id) {
     try {
         $.ajax({
             type: "POST",
-            url: "PostCompDetail.ashx",
+            url: "Post/PostCompDetail.ashx",
             cache: false,
             data: jsonCompDet,
             dataType: "json",

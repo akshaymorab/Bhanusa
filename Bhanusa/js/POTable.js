@@ -8,7 +8,7 @@ function potable() {
     try {
         $.ajax({
             type: "POST",
-            url: "GetPODetails.ashx",
+            url: "Get/GetPODetails.ashx",
             cache: false,
             data: fin,
             dataType: "json",
@@ -59,7 +59,7 @@ function addpodet() {
         try {
             $.ajax({
                 type: "POST",
-                url: "PostPODetail.ashx",
+                url: "Post/PostPODetail.ashx",
                 cache: false,
                 data: podet,
                 dataType: "json",
@@ -85,7 +85,7 @@ function autoPO() {
     try {
         $.ajax({
             type: "POST",
-            url: "GetPODetails.ashx",
+            url: "Get/GetPODetails.ashx",
             cache: false,
             data: selval,
             dataType: "json",

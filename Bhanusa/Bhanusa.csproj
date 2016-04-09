@@ -84,16 +84,16 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GetbtnDCDetails.ashx.cs">
+    <Compile Include="Get\GetbtnDCDetails.ashx.cs">
       <DependentUpon>GetbtnDCDetails.ashx</DependentUpon>
     </Compile>
-    <Compile Include="GetCompDetails.ashx.cs">
+    <Compile Include="Get\GetCompDetails.ashx.cs">
       <DependentUpon>GetCompDetails.ashx</DependentUpon>
     </Compile>
-    <Compile Include="GetDesktopDetails.ashx.cs">
+    <Compile Include="Get\GetDesktopDetails.ashx.cs">
       <DependentUpon>GetDesktopDetails.ashx</DependentUpon>
     </Compile>
-    <Compile Include="GetPODetails.ashx.cs">
+    <Compile Include="Get\GetPODetails.ashx.cs">
       <DependentUpon>GetPODetails.ashx</DependentUpon>
     </Compile>
     <Compile Include="Index.aspx.cs">
@@ -106,34 +106,34 @@
     <Compile Include="chkUser.ashx.cs">
       <DependentUpon>chkUser.ashx</DependentUpon>
     </Compile>
-    <Compile Include="GetDCDetails.ashx.cs">
+    <Compile Include="Get\GetDCDetails.ashx.cs">
       <DependentUpon>GetDCDetails.ashx</DependentUpon>
     </Compile>
-    <Compile Include="GetDCItem.ashx.cs">
+    <Compile Include="Get\GetDCItem.ashx.cs">
       <DependentUpon>GetDCItem.ashx</DependentUpon>
     </Compile>
-    <Compile Include="GetItemDetails.ashx.cs">
+    <Compile Include="Get\GetItemDetails.ashx.cs">
       <DependentUpon>GetItemDetails.ashx</DependentUpon>
     </Compile>
-    <Compile Include="GetStockDetails.ashx.cs">
+    <Compile Include="Get\GetStockDetails.ashx.cs">
       <DependentUpon>GetStockDetails.ashx</DependentUpon>
     </Compile>
-    <Compile Include="GetUserDetails.ashx.cs">
+    <Compile Include="Get\GetUserDetails.ashx.cs">
       <DependentUpon>GetUserDetails.ashx</DependentUpon>
     </Compile>
-    <Compile Include="PostCompDetail.ashx.cs">
+    <Compile Include="Post\PostCompDetail.ashx.cs">
       <DependentUpon>PostCompDetail.ashx</DependentUpon>
     </Compile>
-    <Compile Include="PostDCDetail.ashx.cs">
+    <Compile Include="Post\PostDCDetail.ashx.cs">
       <DependentUpon>PostDCDetail.ashx</DependentUpon>
     </Compile>
-    <Compile Include="PostPODetail.ashx.cs">
+    <Compile Include="Post\PostPODetail.ashx.cs">
       <DependentUpon>PostPODetail.ashx</DependentUpon>
     </Compile>
-    <Compile Include="PostStockDetail.ashx.cs">
+    <Compile Include="Post\PostStockDetail.ashx.cs">
       <DependentUpon>PostStockDetail.ashx</DependentUpon>
     </Compile>
-    <Compile Include="PostUserDetail.ashx.cs">
+    <Compile Include="Post\PostUserDetail.ashx.cs">
       <DependentUpon>PostUserDetail.ashx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -147,20 +147,20 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="chkUser.ashx" />
-    <Content Include="GetUserDetails.ashx" />
-    <Content Include="PostUserDetail.ashx" />
-    <Content Include="PostDCDetail.ashx" />
-    <Content Include="GetDCDetails.ashx" />
-    <Content Include="GetItemDetails.ashx" />
-    <Content Include="GetDCItem.ashx" />
-    <Content Include="GetStockDetails.ashx" />
-    <Content Include="GetCompDetails.ashx" />
-    <Content Include="PostCompDetail.ashx" />
-    <Content Include="PostStockDetail.ashx" />
-    <Content Include="GetPODetails.ashx" />
-    <Content Include="PostPODetail.ashx" />
-    <Content Include="GetbtnDCDetails.ashx" />
-    <Content Include="GetDesktopDetails.ashx" />
+    <Content Include="Get\GetUserDetails.ashx" />
+    <Content Include="Post\PostUserDetail.ashx" />
+    <Content Include="Post\PostDCDetail.ashx" />
+    <Content Include="Get\GetDCDetails.ashx" />
+    <Content Include="Get\GetItemDetails.ashx" />
+    <Content Include="Get\GetDCItem.ashx" />
+    <Content Include="Get\GetStockDetails.ashx" />
+    <Content Include="Get\GetCompDetails.ashx" />
+    <Content Include="Post\PostCompDetail.ashx" />
+    <Content Include="Post\PostStockDetail.ashx" />
+    <Content Include="Get\GetPODetails.ashx" />
+    <Content Include="Post\PostPODetail.ashx" />
+    <Content Include="Get\GetbtnDCDetails.ashx" />
+    <Content Include="Get\GetDesktopDetails.ashx" />
     <None Include="Properties\PublishProfiles\ZRB.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

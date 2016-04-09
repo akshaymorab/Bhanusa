@@ -55,7 +55,7 @@
             try {
                 $.ajax({
                     type: "POST",
-                    url: "GetUserDetails.ashx",
+                    url: "Get/GetUserDetails.ashx",
                     cache: false,
                     data: fin,
                     dataType: "json",
@@ -103,7 +103,7 @@
             try {
                 $.ajax({
                     type: "POST",
-                    url: "GetCompDetails.ashx",
+                    url: "Get/GetCompDetails.ashx",
                     cache: false,
                     data: selval,
                     dataType: "json",
@@ -263,7 +263,7 @@
                 try {
                     $.ajax({
                         type: "POST",
-                        url: "PostUserDetail.ashx",
+                        url: "Post/PostUserDetail.ashx",
                         cache: false,
                         data: strUser,
                         dataType: "json",
@@ -321,7 +321,7 @@
                     try {
                         $.ajax({
                             type: "POST",
-                            url: "PostDCDetail.ashx",
+                            url: "Post/PostDCDetail.ashx",
                             cache: false,
                             data: strDC,
                             dataType: "json",
@@ -369,7 +369,7 @@
             try {
                 $.ajax({
                     type: "POST",
-                    url: "PostStockDetail.ashx",
+                    url: "Post/PostStockDetail.ashx",
                     cache: false,
                     data: jsonStkDetail,
                     dataType: "json",
