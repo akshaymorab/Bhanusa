@@ -84,10 +84,11 @@ function FUC(id) {
         $('#label4').hide();
         $("#tblRepo tbody").empty();
     }
-    if (conString == "tblRentHistory") {
+    else if (conString == "tblRentHistory") {
+        $("#tblRentHistory tbody tr").remove();
         $("#tblRepo").hide();
         $("#tblRepoStock").hide();
-        $("#rentHistory").show();
+        $("#tblRentHistory").show();
         $('#divSearch').show();
         $('#ddlSearch').show();
         $('#ddlDC').hide();
@@ -102,7 +103,7 @@ function FUC(id) {
                     cache: false,
                     data: fin,
                     dataType: "json",
-                    success: getDesktopSuccess,
+                    success: getRentHistSuc,
                     error: function getbtnFail(cpnmsg) {
                         alert(cpnmsg.Response);
                     }
@@ -110,7 +111,25 @@ function FUC(id) {
             }
             catch (e) {
             }
-            function getDesktopSuccess(det) { }
+            function getRentHistSuc(rnt) {
+                var rntHis = rnt.Response;
+                rntHis = rntHis.split('%');
+                for (var i = 0; i <= rntHis.length - 1; i++) {
+                    var rntClm = rntHis[i].split('^');
+                    var k = i + 1;
+                    $("#tblRentHistory tbody").append(
+                           '<tr id=' + k + '>' +
+                           '<td><div style="color:black; right:inherit">' + rntClm[0] + '</div></td>' +
+                           '<td><div style="color:black; right:inherit">' + rntClm[1] + '</div></td>' +
+                           '<td><div style="color:black; right:inherit">' + rntClm[2] + '</div></td>' +
+                           '<td><div style="color:black; right:inherit">' + rntClm[3] + '</div></td>' +
+                           '<td><div style="color:black; right:inherit">' + rntClm[4] + '</div></td>' +
+                           '<td><div style="color:black; right:inherit">' + rntClm[5] + '</div></td>' +
+                           '<td><div style="color:black; right:inherit">' + rntClm[6] + '</div></td>' +
+                           '<td><div style="color:black; right:inherit">' + rntClm[7] + '</div></td>' +
+                           '</tr>' + '</hr>');
+                }
+            }
 
     }
     else {
@@ -389,7 +408,19 @@ function openSearch() {
 
 //Export to Excel Reports
 function btnExcel() {
-    if (conString == "tblDC") {
+    if (conString == "tblRentHistory") {
+        var a = document.createElement('a');
+        //getting data from our div that contains the HTML table
+        var data_type = 'data:application/vnd.ms-excel';
+        var table_div = document.getElementById('rentHistory');
+        var table_html = table_div.outerHTML.replace(/ /g, '%20');
+        a.href = data_type + ', ' + table_html;
+        //setting the file name
+        a.download = 'Rent_Report.xls';
+        //triggering the function
+        a.click();
+    }
+    else if (conString == "tblDC") {
         var a = document.createElement('a');
         //getting data from our div that contains the HTML table
         var data_type = 'data:application/vnd.ms-excel';

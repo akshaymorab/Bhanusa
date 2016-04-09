@@ -97,6 +97,9 @@
     <Compile Include="Get\GetPODetails.ashx.cs">
       <DependentUpon>GetPODetails.ashx</DependentUpon>
     </Compile>
+    <Compile Include="Get\GetRentHistory.ashx.cs">
+      <DependentUpon>GetRentHistory.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -162,6 +165,7 @@
     <Content Include="Post\PostPODetail.ashx" />
     <Content Include="Get\GetbtnDCDetails.ashx" />
     <Content Include="Get\GetDesktopDetails.ashx" />
+    <Content Include="Get\GetRentHistory.ashx" />
     <None Include="Properties\PublishProfiles\ZRB.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

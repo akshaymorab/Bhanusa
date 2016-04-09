@@ -678,15 +678,15 @@
     </div>
     <!--End Report-->
     <!--Rent History-->
-    <div id="rentHistory" style="display: none;">
-        <table id="tblRentHistory" style="width: 100%; display: none">
+    <div id="rentHistory">
+        <table id="tblRentHistory" style="width: 100%;display: none">
             <thead>
                 <tr>
                     <th class="chkouttblhead">DCNo</th>
                     <th class="chkouttblhead">Company</th>
                     <th class="chkouttblhead">SerialNumber</th>
                     <th class="chkouttblhead">ModelNumber</th>
-                    <th class="chkouttblhead">Model Number</th>
+                    <th class="chkouttblhead">Configurtion</th>
                     <th class="chkouttblhead">Quantity</th>
                     <th class="chkouttblhead">StartDate</th>
                     <th class="chkouttblhead">EndDate</th>

@@ -7,18 +7,18 @@ using System.Globalization;
 using System.Linq;
 using System.Web;
 
-namespace Bhanusa
+namespace Bhanusa.Get
 {
     /// <summary>
-    /// Summary description for GetbtnDCDetails
+    /// Summary description for GetRentHistory
     /// </summary>
-    public class GetbtnDCDetails : IHttpHandler
+    public class GetRentHistory : IHttpHandler
     {
-
         static string strCon = ConfigurationManager.ConnectionStrings["ApplicationServices"].ConnectionString;
 
         public void ProcessRequest(HttpContext context)
         {
+            string strItmRow = string.Empty;
             string jsonStr = string.Empty;
             HttpContext.Current.Request.InputStream.Position = 0;
             using (System.IO.StreamReader instr = new System.IO.StreamReader(HttpContext.Current.Request.InputStream))
@@ -29,32 +29,32 @@ namespace Bhanusa
                 DataTable dt = new DataTable();
                 MySqlConnection con = new MySqlConnection(strCon);
                 con.Open();
-                MySqlCommand cmd = new MySqlCommand("SELECT "+jsonStr+".DCNo, "+jsonStr+".Company,"+jsonStr+".Date from "+jsonStr+" ORDER BY DCNo ASC", con);
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM tblRentHistory Order By EndDate Desc", con);
                 MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                 da.Fill(dt);
                 con.Close();
-                if (dt.Rows.Count > 0)
+
+                for (int i = 0; i <= dt.Rows.Count - 1; i++) 
                 {
-                    for (int i = 0; i <= dt.Rows.Count - 1; i++)
+                    string strEnddt = dt.Rows[i]["EndDate"].ToString();
+                    DateTime dtime = Convert.ToDateTime(strEnddt);
+                    strEnddt = dtime.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
+                    if (i == 0)
                     {
-                        string strDate = dt.Rows[i]["Date"].ToString();
-                        DateTime dtime = Convert.ToDateTime(strDate);
-                        strDate = dtime.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
-                        if (i == 0)
-                        {
-                            str = dt.Rows[i]["DCNo"].ToString() + ";" + dt.Rows[i]["Company"].ToString() + ";" + strDate;
-                        }
-                        else
-                        {
-                            str = str + "%" + dt.Rows[i]["DCNo"].ToString() + ";" + dt.Rows[i]["Company"].ToString() + ";" + strDate;
-                        }
+                        strItmRow = dt.Rows[i]["DCNo"].ToString() + "^" + dt.Rows[i]["Company"].ToString() + "^" + dt.Rows[i]["SerialNumber"].ToString() + "^" + dt.Rows[i]["ModelNumber"].ToString() + "^" + dt.Rows[i]["Configuration"].ToString() + "^" + dt.Rows[i]["Quantity"].ToString() + "^" + dt.Rows[i]["StartDate"].ToString() + "^" + strEnddt;
                     }
+                    else
+                    {
+                        strItmRow = strItmRow + "%" + dt.Rows[i]["DCNo"].ToString() + "^" + dt.Rows[i]["Company"].ToString() + "^" + dt.Rows[i]["SerialNumber"].ToString() + "^" + dt.Rows[i]["ModelNumber"].ToString() + "^" + dt.Rows[i]["Configuration"].ToString() + "^" + dt.Rows[i]["Quantity"].ToString() + "^" + dt.Rows[i]["StartDate"].ToString() + "^" + strEnddt;
+                    }
+                }
+
                     context.Response.Write(jSerialiser.Serialize(new
                     {
-                        Response = str
+                        Response = strItmRow
                     }));
-                }
             }
+            
         }
 
         public bool IsReusable
