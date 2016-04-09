@@ -58,8 +58,8 @@ namespace Bhanusa
                 cmd1.Parameters.AddWithValue("@empemail", chkUserDetails[5]);
                 cmd1.Parameters.AddWithValue("@empaddress", chkUserDetails[6]);
                 conn.Open();
-                 cmd1.ExecuteNonQuery();
-                conn.Clone();
+                cmd1.ExecuteNonQuery();
+                conn.Close();
 
                 string result = string.Empty;
                 result = chkUserDetails[1] + " Added Successfully";
