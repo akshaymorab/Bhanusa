@@ -1,5 +1,5 @@
 ﻿.header {
-    height:100px;
+    height:60px;
     width: 100%;
     position:fixed;
     background-color:AppWorkspace;
@@ -60,13 +60,16 @@ border:1px solid transparent;
 }
 
 #btnAddDC , #btnAddUser {
+    width:100px;
     background-color:black;
     color:white;
     border:1px solid black;
     border-radius:5px;
-    float:right;
+    right:5%;
     font-size:25px;
-    margin:0 25px 0 0;
+    margin:0 0 0 0;
+    position:fixed;
+    z-index:9999;
 }
 
 #btnAddDC:hover, #btnAddUser:hover {
@@ -117,11 +120,11 @@ border:1px solid transparent;
     }
 
 .menu {
-    top:80px;
+    top:60px;
     z-index:9999;
     position:fixed;
     float:left;
-    width: 100%;
+    width: 120px;
     border:1px solid black;
     /*background: -moz-linear-gradient(top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
     /*background: -webkit-linear-gradient(top, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0) 100%);*/ /* Chrome10-25,Safari5.1-6 */
@@ -132,7 +135,7 @@ border:1px solid transparent;
 .btnMenu {
     background-color:white;
     float:left;
-    width:18.36%;
+    width:100px;
     font-weight: 400;
     font-size: 1.5em;
     margin: 0px auto;
@@ -162,17 +165,15 @@ border:1px solid transparent;
         color:white;
     }
 
-.btnRpot {
-    background-color:white;
-    float:left;
-    width:8%;
+.btnRpot {background-color: white;
+    width: 100px;
     font-weight: 200;
     font-size: 1.0em;
     margin: 0px auto;
     border: 1px solid;
     padding: 10px;
     cursor: pointer;
-    text-align:center;
+    text-align: center;
 }
 
 #divDC {
@@ -211,11 +212,14 @@ border:1px solid transparent;
     background-color:white;
 }
 #divRpot {
-    background-color:AppWorkspace;
-    padding-top:150px;
-    display:none;
-    position:fixed;
-    width:100%
+    overflow-y: scroll;
+    background-color: AppWorkspace;
+    top: 310px;
+    left: 5px;
+    display: none;
+    position: fixed;
+    width: 120px;
+    height: 300px;
 }
 .report {
     padding-top:220px;
@@ -416,7 +420,7 @@ width:100%;
 .tblDC {
     border:1px solid black;
     margin:0px auto;
-    width: 100%;
+    width: 60%;
 }
 .tblStock {
     border:1px solid black;
