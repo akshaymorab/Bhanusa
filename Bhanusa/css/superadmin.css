@@ -162,6 +162,19 @@ border:1px solid transparent;
         color:white;
     }
 
+.btnRpot {
+    background-color:white;
+    float:left;
+    width:8%;
+    font-weight: 200;
+    font-size: 1.0em;
+    margin: 0px auto;
+    border: 1px solid;
+    padding: 10px;
+    cursor: pointer;
+    text-align:center;
+}
+
 #divDC {
     display: none;
     margin: 0px auto;

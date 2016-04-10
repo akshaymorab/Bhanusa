@@ -611,17 +611,17 @@
 
     <!--Report-->
     <div id="divRpot">
-        <input type="button" id="btn1" value="DC" class="btn" onclick="FUC(this.id);" />
-        <input type="button" id="btn4" value="Desktop" class="btn" onclick="FUC(this.id);" />
-        <input type="button" id="btn5" value="Laptop" class="btn" onclick="FUC(this.id);" />
-        <input type="button" id="btn6" value="Server" class="btn" onclick="FUC(this.id);" />
-        <input type="button" id="btn7" value="Printer" class="btn" onclick="FUC(this.id);" />
-        <input type="button" id="btn8" value="Projector" class="btn" onclick="FUC(this.id);" />
-        <input type="button" id="btn9" value="Mobile" class="btn" onclick="FUC(this.id);" />
-        <input type="button" id="btn10" value="Tablet" class="btn" onclick="FUC(this.id);" />
-        <input type="button" id="btn11" value="Accessories" class="btn" onclick="FUC(this.id);" />
-        <input type="button" id="btn12" value="Others" class="btn" onclick="FUC(this.id);" /><br />
-        <input type="button" id="btn13" value="History" class="btn" onclick="FUC(this.id);" /><br />
+        <input type="button" id="btn1" value="DC" class="btnRpot" onclick="FUC(this.id);" />
+        <input type="button" id="btn4" value="Desktop" class="btnRpot" onclick="FUC(this.id);" />
+        <input type="button" id="btn5" value="Laptop" class="btnRpot" onclick="FUC(this.id);" />
+        <input type="button" id="btn6" value="Server" class="btnRpot" onclick="FUC(this.id);" />
+        <input type="button" id="btn7" value="Printer" class="btnRpot" onclick="FUC(this.id);" />
+        <input type="button" id="btn8" value="Projector" class="btnRpot" onclick="FUC(this.id);" />
+        <input type="button" id="btn9" value="Mobile" class="btnRpot" onclick="FUC(this.id);" />
+        <input type="button" id="btn10" value="Tablet" class="btnRpot" onclick="FUC(this.id);" />
+        <input type="button" id="btn11" value="Accessories" class="btnRpot" onclick="FUC(this.id);" />
+        <input type="button" id="btn12" value="Others" class="btnRpot" onclick="FUC(this.id);" /><br />
+        <input type="button" id="btn13" value="History" class="btnRpot" onclick="FUC(this.id);" /><br />
         <div id="divSearch" style="display: none">
             <label id="label1">Count:</label><label id="label2" style="margin: 0.4%"></label><label id="strRent">Rent</label><label id="label3" style="margin: 0.4%"></label><label id="strInStock">InStock:</label><label id="label4" style="margin: 0.4%"></label>
             <label id="strColmn">Select Column:</label>
