@@ -498,10 +498,10 @@
     </div>
 
     <!-- Table -->
-    <div id="table" class="table">
+    <div id="table">
 
         <!--DC-->
-        <div id="divDC" class="table">
+        <div id="divDC">
             <input type="button" id="btnAddDC" value="Add" class="btn" onclick="adddc();" />
             <table id="tblDC" class="tblDC">
                 <thead>
@@ -608,8 +608,9 @@
 
 
     </div>
+
     <!--Report-->
-    <div id="divRpot" class="table" style="margin: 5% 5px 0 20px; display: none;">
+    <div id="divRpot">
         <input type="button" id="btn1" value="DC" class="btn" onclick="FUC(this.id);" />
         <input type="button" id="btn4" value="Desktop" class="btn" onclick="FUC(this.id);" />
         <input type="button" id="btn5" value="Laptop" class="btn" onclick="FUC(this.id);" />
@@ -621,7 +622,7 @@
         <input type="button" id="btn11" value="Accessories" class="btn" onclick="FUC(this.id);" />
         <input type="button" id="btn12" value="Others" class="btn" onclick="FUC(this.id);" /><br />
         <input type="button" id="btn13" value="History" class="btn" onclick="FUC(this.id);" /><br />
-        <div id="divSearch" class="table" style="display: none">
+        <div id="divSearch" style="display: none">
             <label id="label1">Count:</label><label id="label2" style="margin: 0.4%"></label><label id="strRent">Rent</label><label id="label3" style="margin: 0.4%"></label><label id="strInStock">InStock:</label><label id="label4" style="margin: 0.4%"></label>
             <label id="strColmn">Select Column:</label>
             <select id="ddlSearch" style="display: none">
@@ -642,8 +643,11 @@
             <input type="button" value="Search" id="btnSearch" onclick="btnSearch()" />
             <input type="button" value="Export" id="btnETE" onclick="btnExcel()" />
         </div>
+    </div>
+    <!--End Report-->
 
-        <div id="divRepoStock">
+    <!--StockReport-->
+    <div id="divRepoStock" class="report">
             <table id="tblRepoStock" class="tblPO" style="display: none">
                 <thead>
                     <tr>
@@ -661,7 +665,9 @@
                 </tbody>
             </table>
         </div>
-        <div id="divRepo">
+
+    <!--DCReport-->
+    <div id="divRepo" class="report">
             <table id="tblRepo" class="tblPO" style="display: none">
                 <thead>
                     <tr>
@@ -675,11 +681,10 @@
                 </tbody>
             </table>
         </div>
-    </div>
-    <!--End Report-->
+
     <!--Rent History-->
-    <div id="rentHistory">
-        <table id="tblRentHistory" style="width: 100%;display: none">
+    <div id="rentHistory" style="padding-top:75px">
+        <table id="tblRentHistory" class="tblPO" style="display: none">
             <thead>
                 <tr>
                     <th class="chkouttblhead">DCNo</th>
@@ -697,10 +702,11 @@
         </table>
     </div>
     <!--End History-->
+
     <!--Form-->
     <div id="form" class="form">
         <!--DC-->
-        <div id="formDC" class="form" style="display: none">
+        <div id="formDC" style="display: none">
             <form id="frmDC" method="post">
                 <div class="btnclose" id="btnclose" onclick="frmclose(this.id);">X</div>
                 <div id="divFormDC">
