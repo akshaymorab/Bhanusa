@@ -125,19 +125,19 @@
     <Compile Include="Get\GetUserDetails.ashx.cs">
       <DependentUpon>GetUserDetails.ashx</DependentUpon>
     </Compile>
-    <Compile Include="css\Post\PostCompDetail.ashx.cs">
+    <Compile Include="Post\PostCompDetail.ashx.cs">
       <DependentUpon>PostCompDetail.ashx</DependentUpon>
     </Compile>
-    <Compile Include="css\Post\PostDCDetail.ashx.cs">
+    <Compile Include="Post\PostDCDetail.ashx.cs">
       <DependentUpon>PostDCDetail.ashx</DependentUpon>
     </Compile>
-    <Compile Include="css\Post\PostPODetail.ashx.cs">
+    <Compile Include="Post\PostPODetail.ashx.cs">
       <DependentUpon>PostPODetail.ashx</DependentUpon>
     </Compile>
-    <Compile Include="css\Post\PostStockDetail.ashx.cs">
+    <Compile Include="Post\PostStockDetail.ashx.cs">
       <DependentUpon>PostStockDetail.ashx</DependentUpon>
     </Compile>
-    <Compile Include="css\Post\PostUserDetail.ashx.cs">
+    <Compile Include="Post\PostUserDetail.ashx.cs">
       <DependentUpon>PostUserDetail.ashx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -152,17 +152,17 @@
   <ItemGroup>
     <Content Include="chkUser.ashx" />
     <Content Include="Get\GetUserDetails.ashx" />
-    <Content Include="css\Post\PostUserDetail.ashx" />
-    <Content Include="css\Post\PostDCDetail.ashx" />
+    <Content Include="Post\PostUserDetail.ashx" />
+    <Content Include="Post\PostDCDetail.ashx" />
     <Content Include="Get\GetDCDetails.ashx" />
     <Content Include="Get\GetItemDetails.ashx" />
     <Content Include="Get\GetDCItem.ashx" />
     <Content Include="Get\GetStockDetails.ashx" />
     <Content Include="Get\GetCompDetails.ashx" />
-    <Content Include="css\Post\PostCompDetail.ashx" />
-    <Content Include="css\Post\PostStockDetail.ashx" />
+    <Content Include="Post\PostCompDetail.ashx" />
+    <Content Include="Post\PostStockDetail.ashx" />
     <Content Include="Get\GetPODetails.ashx" />
-    <Content Include="css\Post\PostPODetail.ashx" />
+    <Content Include="Post\PostPODetail.ashx" />
     <Content Include="Get\GetbtnDCDetails.ashx" />
     <Content Include="Get\GetDesktopDetails.ashx" />
     <Content Include="Get\GetRentHistory.ashx" />
