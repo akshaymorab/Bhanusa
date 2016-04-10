@@ -1,6 +1,9 @@
 ﻿.header {
     height:100px;
     width: 100%;
+    position:fixed;
+    background-color:AppWorkspace;
+    z-index:9999;
     /*background: -moz-linear-gradient(top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 100%);*/ /* FF3.6-15 */
     /*background: -webkit-linear-gradient(top, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0) 100%);*/ /* Chrome10-25,Safari5.1-6 */
     /*background: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0) 100%);*/ /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
@@ -152,29 +155,19 @@ border:1px solid transparent;
     display:none;
     z-index: 9999;
     position: fixed;
-    left:25%;
+    left:20%;
 }
   .btnMenu:hover {
         background-color: black;
         color:white;
     }
 
-.table {
-    width:100%;
-    /*background-color:antiquewhite;*/
-    /*background: -moz-linear-gradient(top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 100%);*/ /* FF3.6-15 */
-    /*background: -webkit-linear-gradient(top, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0) 100%);*/ /* Chrome10-25,Safari5.1-6 */
-    /*background: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0) 100%);*/ /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    /*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#99000000', endColorstr='#00000000',GradientType=0 );*/ /* IE6-9 */
-}
-
 #divDC {
     display: none;
     margin: 0px auto;
     width: auto;
     height: 100%;
-    top: 50px;
-    position: relative;
+    padding-top:150px;
 }
 #divPO {
     display: none;
@@ -183,6 +176,7 @@ border:1px solid transparent;
     height: 100%;
     top: 50px;
     position: relative;
+    padding-top:100px;
 }
 
 #divStock {
@@ -191,15 +185,27 @@ border:1px solid transparent;
     display: none;
     margin: 0px auto;
     width: 96%;
+    padding-top:50px;
 }
 
 #divUser {
     top: 50px;
+    padding-top:80px;
     position: relative;
     display: none;
     margin:0px auto;
     width: 100%;
     background-color:white;
+}
+#divRpot {
+    background-color:AppWorkspace;
+    padding-top:150px;
+    display:none;
+    position:fixed;
+    width:100%
+}
+.report {
+    padding-top:220px;
 }
 
 .shadowbox {
@@ -349,6 +355,7 @@ width:100%;
 }
 
 .form {
+    
     display: none;
     margin: 0px 0px 0px 20%;
     padding: 20px;
@@ -360,18 +367,27 @@ width:100%;
 }
 
 #formDC {
+    padding-top:150px;
     display: none;
     margin: 0px auto;
     width: 96%;
 }
 
 #formStock {
+    padding-top:150px;
     display: none;
     margin: 0px auto;
     width: 96%;
 }
 
 #formUser {
+    padding-top:150px;
+    display: none;
+    margin: 0px auto;
+    width: 96%;
+}
+#formPO {
+    padding-top:150px;
     display: none;
     margin: 0px auto;
     width: 96%;
@@ -386,7 +402,7 @@ width:100%;
 
 .tblDC {
     border:1px solid black;
-    margin: 0px auto;
+    margin:0px auto;
     width: 100%;
 }
 .tblStock {
