@@ -1,15 +1,17 @@
 ﻿//Get Stock Table
 function stocktable() {
     $("#stkItem").show();
+    $("#btnUser").css({ "padding-top": "140%" });
+
 }
 function stocks(id) {
     closediv();
+    stocktable();
     var btnid;
     $('#tblStock tbody tr').remove();
     $('#tblCompany tbody tr').remove();
     if (id == "btnDesktop") {
         $('#divStock').show();
-        $('#stkItem').hide();
         $('#tblStock').show()
         $('#tblCompany').hide();
         document.getElementById("btnDesktop").disabled = true;
@@ -17,7 +19,6 @@ function stocks(id) {
     }
     if (id == "btnLaptop") {
         $('#divStock').show();
-        $('#stkItem').hide();
         $('#tblStock').show()
         $('#tblCompany').hide();
         document.getElementById("btnLaptop").disabled = true;
@@ -25,7 +26,6 @@ function stocks(id) {
     }
     if (id == "btnServer") {
         $('#divStock').show();
-        $('#stkItem').hide();
         $('#tblStock').show()
         $('#tblCompany').hide();
         document.getElementById("btnLaptop").disabled = true;
@@ -33,7 +33,6 @@ function stocks(id) {
     }
     if (id == "btnPrinter") {
         $('#divStock').show();
-        $('#stkItem').hide();
         $('#tblStock').show()
         $('#tblCompany').hide();
         document.getElementById("btnPrinter").disabled = true;
@@ -41,7 +40,6 @@ function stocks(id) {
     }
     if (id == "btnProjector") {
         $('#divStock').show();
-        $('#stkItem').hide();
         $('#tblStock').show()
         $('#tblCompany').hide();
         document.getElementById("btnProjector").disabled = true;
@@ -49,7 +47,6 @@ function stocks(id) {
     }
     if (id == "btnMobile") {
         $('#divStock').show();
-        $('#stkItem').hide();
         $('#tblStock').show()
         $('#tblCompany').hide();
         document.getElementById("btnMobile").disabled = true;
@@ -57,7 +54,6 @@ function stocks(id) {
     }
     if (id == "btnTablet") {
         $('#divStock').show();
-        $('#stkItem').hide();
         $('#tblStock').show()
         $('#tblCompany').hide();
         document.getElementById("btnTablet").disabled = true;
@@ -65,7 +61,6 @@ function stocks(id) {
     }
     if (id == "btnAccessories") {
         $('#divStock').show();
-        $('#stkItem').hide();
         $('#tblStock').show()
         $('#tblCompany').hide();
         document.getElementById("btnAccessories").disabled = true;
@@ -73,7 +68,6 @@ function stocks(id) {
     }
     if (id == "btnOthers") {
         $('#divStock').show();
-        $('#stkItem').hide();
         $('#tblStock').show()
         $('#tblCompany').hide();
         document.getElementById("btnOthers").disabled = true;
@@ -81,7 +75,6 @@ function stocks(id) {
     }
     if (id == "btnCompany") {
         $('#divStock').show();
-        $('#stkItem').hide();
         $('#tblStock').hide()
         $('#tblCompany').show();
         document.getElementById("btnCompany").disabled = true;

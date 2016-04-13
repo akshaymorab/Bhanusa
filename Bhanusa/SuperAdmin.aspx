@@ -8,6 +8,7 @@
     <script src="js/jspdf.js"></script>
     <link rel="stylesheet" href="css/superadmin.css" />
     <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.10.0.min.js" type="text/javascript"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.9.2/jquery-ui.min.js" type="text/javascript"></script>
     <link href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.9.2/themes/blitzer/jquery-ui.css" rel="Stylesheet" type="text/css" />
     <script type="text/javascript" src="//cdn.rawgit.com/MrRio/jsPDF/master/dist/jspdf.min.js"></script>
@@ -204,10 +205,11 @@
             $('#formUser').hide();
             $('#formDC').hide();
             $('#formPO').hide();
-            $('#stkItem').hide();
             $('#formStock').hide();
             $('#btnAddDCItem').hide();
             $('#formCompany').hide();
+            $("#stkItem").hide();
+            $("#btnUser").css({ "padding-top": "0%" });
         }
         //close all labels
         function closelab() {
@@ -477,7 +479,10 @@
     <!-- Menu -->
     <div id="menu" class="menu">
         <div id="btnDC" class="btnMenu" onclick="dctable();">DC</div>
-        <div id="btnStock" class="btnMenu" onclick="stocktable();">Stock</div>
+        <div id="btnStock" class="btnMenu" onclick="stocktable();">
+            Stock
+            
+        </div>
         <div id="btnUser" class="btnMenu" onclick="usertable();">User</div>
         <div id="btnPO" class="btnMenu" onclick="potable();">PO</div>
         <div id="btnReport" class="btnMenu" onclick="repotable();">Reports</div>
@@ -587,7 +592,7 @@
         </div>
 
         <!--PO-->
-        <div id="divPO" class="table">
+        <div id="divPO" >
             <input type="button" id="btnAddPO" value="Add" class="btn" onclick="addPO();" />
             <table id="tblPO" class="tblPO">
                 <thead>
@@ -622,7 +627,7 @@
         <input type="button" id="btn11" value="Accessories" class="btnRpot" onclick="FUC(this.id);" />
         <input type="button" id="btn12" value="Others" class="btnRpot" onclick="FUC(this.id);" /><br />
         <input type="button" id="btn13" value="History" class="btnRpot" onclick="FUC(this.id);" /><br />
-        <div id="divSearch" style="display: none">
+        <div id="divSearch" class="srhrpt">
             <label id="label1">Count:</label><label id="label2" style="margin: 0.4%"></label><label id="strRent">Rent</label><label id="label3" style="margin: 0.4%"></label><label id="strInStock">InStock:</label><label id="label4" style="margin: 0.4%"></label>
             <label id="strColmn">Select Column:</label>
             <select id="ddlSearch" style="display: none">
@@ -647,44 +652,44 @@
     <!--End Report-->
 
     <!--StockReport-->
-    <div id="divRepoStock" class="report">
-            <table id="tblRepoStock" class="tblPO" style="display: none">
-                <thead>
-                    <tr>
-                        <th class="chkouttblhead">Serial Number</th>
-                        <th class="chkouttblhead">Model Number</th>
-                        <th class="chkouttblhead">StockStatus</th>
-                        <th class="chkouttblhead">DC No</th>
-                        <th class="chkouttblhead">Company</th>
-                        <th class="chkouttblhead">Configuration</th>
-                        <th class="chkouttblhead">DCStatus</th>
-                        <th class="chkouttblhead">Quantity</th>
-                    </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
-        </div>
+    <div id="divRepoStock" style="padding-top:90px;padding-left:15%;width:100%">
+        <table id="tblRepoStock" style="display: none">
+            <thead>
+                <tr>
+                    <th class="chkouttblhead">Serial Number</th>
+                    <th class="chkouttblhead">Model Number</th>
+                    <th class="chkouttblhead">StockStatus</th>
+                    <th class="chkouttblhead">DC No</th>
+                    <th class="chkouttblhead">Company</th>
+                    <th class="chkouttblhead">Configuration</th>
+                    <th class="chkouttblhead">DCStatus</th>
+                    <th class="chkouttblhead">Quantity</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
 
     <!--DCReport-->
-    <div id="divRepo" class="report">
-            <table id="tblRepo" class="tblPO" style="display: none">
-                <thead>
-                    <tr>
-                        <th class="chkouttblhead">DC NO.</th>
-                        <th class="chkouttblhead">COMPANY</th>
-                        <%--<th class="chkouttblhead">PO NO.</th>--%>
-                        <th class="chkouttblhead">DATE</th>
-                    </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
-        </div>
+    <div id="divRepo" style="padding-top:40px;width:100%;padding-left:15%">
+        <table id="tblRepo" style="display: none">
+            <thead>
+                <tr>
+                    <th class="chkouttblhead">DC NO.</th>
+                    <th class="chkouttblhead">COMPANY</th>
+                    <%--<th class="chkouttblhead">PO NO.</th>--%>
+                    <th class="chkouttblhead">DATE</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
 
     <!--Rent History-->
-    <div id="rentHistory" style="padding-top:75px">
-        <table id="tblRentHistory" class="tblPO" style="display: none">
+    <div id="rentHistory" style="width:100%;padding-left:15%">
+        <table id="tblRentHistory" style="display: none">
             <thead>
                 <tr>
                     <th class="chkouttblhead">DCNo</th>
