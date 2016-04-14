@@ -38,11 +38,9 @@ function FUC(id) {
             break;
     }
     if (conString == "tblDC" || conString == "tblCompany") {
-        $("#divRepoStock").hide();
-        $("#rentHistory").hide();
-        $("#divRepo").show();
+        repotable();
+        $('#divRepo').show();
         $('#divSearch').show();
-        $('#ddlSearch').hide();
         $('#ddlDC').show();
         openSearch();
         var fin = conString;
@@ -87,8 +85,7 @@ function FUC(id) {
     }
     else if (conString == "tblRentHistory") {
         $("#tblRentHistory tbody tr").remove();
-        $("#divRepo").hide();
-        $("#divRepoStock").hide();
+        repotable();
         $("#tblRentHistory").show();
         $('#divSearch').show();
         $('#ddlSearch').show();
@@ -134,9 +131,7 @@ function FUC(id) {
 
     }
     else {
-        
-        $("#divRepo").hide();
-        $("#rentHistory").hide();
+        repotable();
         $("#divRepoStock").show();
         $('#divSearch').show();
         $('#ddlSearch').show();

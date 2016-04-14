@@ -216,6 +216,7 @@
             $('#divRepo').hide();
             $('#rentHistory').hide();
             $('#divSearch').hide();
+            $('#ddlSearch').hide();
             $('#divRpot').hide();
             $("#btnReport").css({ "padding-bottom": "0%" });
             
@@ -683,7 +684,7 @@
     </div>
 
     <!--DCReport-->
-    <div id="divRepo" style="display: none; padding-top: 70px; width: 100%; padding-left: 20%">
+    <div id="divRepo" style="display: none; padding-top: 80px; width: 80%; padding-left: 20%">
         <table id="tblRepo">
             <thead>
                 <tr>
