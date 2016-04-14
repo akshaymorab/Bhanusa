@@ -1,11 +1,11 @@
 ﻿//Get Stock Table
 function stocktable() {
+    closediv();
     $("#stkItem").show();
-    $("#btnUser").css({ "padding-top": "140%" });
+    $("#btnStock").css({ "padding-bottom": "150%" });
 
 }
 function stocks(id) {
-    closediv();
     stocktable();
     var btnid;
     $('#tblStock tbody tr').remove();

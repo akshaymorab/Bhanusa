@@ -1,10 +1,14 @@
-﻿.header {
-    height:60px;
+﻿
+
+.header {
+    height: 60px;
     width: 100%;
-    position:fixed;
-    background-color:AppWorkspace;
-    z-index:9999;
-    border: 1px solid;
+    position: fixed;
+    background-color: #ffffff;
+    z-index: 9999;
+    border: 2px solid #2b90d9;
+    top: 0px;
+    left: 0px;
     /*background: -moz-linear-gradient(top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 100%);*/ /* FF3.6-15 */
     /*background: -webkit-linear-gradient(top, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0) 100%);*/ /* Chrome10-25,Safari5.1-6 */
     /*background: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0) 100%);*/ /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
@@ -12,24 +16,30 @@
 }
 
 body {
-	background: url("../images/bg.jpg") no-repeat center center fixed;
-	background-size: cover;
-	font-size: 16px;
-	font-family: 'Lato', sans-serif;
-	font-weight: 300;
-	margin: 0;
-	color: #666;
+    background: url("../images/bg.jpg") no-repeat center center fixed;
+    background-size: cover;
+    font-size: 16px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    color: #666;
 }
 
- th{
-border:2px solid black;
+.chkouttblhead {
+    border: 2px solid #2b90d9;
+    width:10%;
+    z-index:9999;
+    background-color: #ffffff;
 }
+
 td {
-border:1px solid black;
+    border: 1px solid #2b90d9;
+    width:10%;
+    z-index:9999;
+    background-color: #ffffff;
 }
 
 .btd {
-border:1px solid transparent;
+    border: 1px solid transparent;
 }
 
 #lblLogo {
@@ -43,7 +53,7 @@ border:1px solid transparent;
     max-width: 300px;
     text-align: left;
     position: relative;
-    vertical-align:central;
+    vertical-align: central;
     top: 0px;
 }
 
@@ -60,77 +70,84 @@ border:1px solid transparent;
     outline: none;
 }
 
-#btnAddDC , #btnAddUser, #btnAddStock, #btnAddPO{
-    width:100px;
-    background-color:black;
-    color:white;
-    border:1px solid black;
-    border-radius:5px;
-    right:5%;
-    font-size:25px;
-    margin:0 0 0 0;
-    position:fixed;
-    z-index:9999;
-    top:10%;
+#btnAddDC, #btnAddUser, #btnAddStock, #btnAddPO {
+    width: 10%;
+    font-size: 25px;
+    margin: 0 0 0 86%;
+    position: fixed;
+    z-index: 9999;
+    top: 10%;
+    color: #2b90d9;
+    transition: all 0.3s ease 0s;
+    background: #fff;
+    border: 2px solid #2b90d9;
+    height: 10%;
 }
 
-#btnAddDC:hover, #btnAddUser:hover, #btnAddStock:hover, #btnAddPO:hover{
-    background-color: white;
-    color: black;
-}
+    #btnAddDC:hover, #btnAddUser:hover, #btnAddStock:hover, #btnAddPO:hover {
+        background: #2b90d9;
+        border-color: #2b90d9;
+        color: #FFFFFF;
+    }
 
-.btn , btnstock {
+.btn, btnstock {
     font-family: 'Roboto Slab', serif;
-    border: solid;
+    border: solid #2b90d9;
     border-radius: 2px;
     color: #665851;
     letter-spacing: 1px;
     cursor: pointer;
-    text-align:center;
-    float:right;
+    text-align: center;
+    float: right;
+    transition: all 0.3s ease 0s;
 }
 
 .btnstock {
     float: left;
     width: 100%;
-    cursor:pointer;
-    display:none;
-    padding:10px;
-    margin:0px auto;
-    text-align:center;
+    cursor: pointer;
+    display: none;
+    padding: 10px;
+    margin: 0px auto;
+    text-align: center;
 }
+
 .stock {
     float: left;
-    width: 80%;
-    cursor:pointer;
-    margin:0px auto;
-    border:1px solid black;
+    width: 100%;
+    cursor: pointer;
+    border: 1px solid #2b90d9;
+    transition: all 0.3s ease 0s;
 }
-.stock:hover {
-        background-color: black;
-        color:white;
+
+    .stock:hover {
+        background: #2b90d9;
+        border-color: #2b90d9;
+        color: #FFFFFF;
     }
 
 #btnLogout {
-    position:relative;
-    top:-50px;
+    position: relative;
+    top: -50px;
     font-weight: 400;
     font-size: 0.9em;
     margin: 0px 0px 0px 2%;
 }
+
     #btnLogout:hover {
-        border:5px solid black;
+        border: 5px solid black;
     }
 
 .menu {
-    top:60px;
-    z-index:9999;
-    position:fixed;
-    float:left;
+    top: 60px;
+    position: fixed;
+    float: left;
     width: 215px;
-    border:1px solid black;
-    height:100%;
-    background-color:AppWorkspace;
+    border: 2px solid black;
+    height: 87%;
+    background-color: #ffffff;
+    left: 0px;
+    border-color: #2b90d9;
     /*background: -moz-linear-gradient(top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
     /*background: -webkit-linear-gradient(top, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0) 100%);*/ /* Chrome10-25,Safari5.1-6 */
     /*background: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0) 100%);*/ /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
@@ -138,18 +155,21 @@ border:1px solid transparent;
 }
 
 .btnMenu {
-    float:left;
-    width:190px;
+    float: left;
+    width: 190px;
     font-weight: 400;
     font-size: 1.5em;
     margin: 0px auto;
-    border: 1px solid;
+    border: 2px solid;
     padding: 10px;
     cursor: pointer;
-    text-align:center;
+    text-align: center;
+    border-color: #2b90d9;
+    transition: all 0.3s ease 0s;
 }
+
 .btnStkMenu {
-    top: 160px;
+    top: 164px;
     width: 15%;
     font-weight: 400;
     font-size: 1.5em;
@@ -160,30 +180,39 @@ border:1px solid transparent;
     z-index: 9999;
     position: fixed;
     left: 5px;
+    border-color: #2b90d9;
 }
-  .btnMenu:hover {
-        background-color: black;
-        color:white;
-    }
 
-.btnRpot {background-color: white;
-    width: 160px;
-    font-weight: 200;
-    font-size: 1.0em;
-    margin: 0px auto;
-    border: 1px solid;
-    padding: 10px;
-    cursor: pointer;
-    text-align: center;
+.btnMenu:hover {
+    background-color: black;
+    color: white;
 }
+
+.btnRpot {
+    float: left;
+    width: 80%;
+    cursor: pointer;
+    padding: 10px;
+    margin: 1px auto;
+    text-align: center;
+    border: 1px solid #2b90d9;
+    transition: all 0.3s ease 0s;
+}
+
+    .btnRpot:hover {
+        background: #2b90d9;
+        border-color: #2b90d9;
+        color: #FFFFFF;
+    }
 
 #divDC {
     display: none;
     margin: 0px auto;
     width: auto;
     height: 100%;
-    padding-top:150px;
+    padding-top: 5%;
 }
+
 #divPO {
     display: none;
     margin: 0px auto;
@@ -191,46 +220,52 @@ border:1px solid transparent;
     height: 100%;
     top: 50px;
     position: relative;
-    padding-top:100px;
+    padding-top: 100px;
 }
 
 #divStock {
-    position:relative;
-    top:100px;
+    position: relative;
+    top: 100px;
     display: none;
     margin: 0px auto;
     width: 96%;
-    padding-top:50px;
+    padding-top: 50px;
 }
 
 #divUser {
     top: 50px;
-    padding-top:80px;
+    padding-top: 80px;
     position: relative;
     display: none;
-    margin:0px auto;
+    margin: 0px auto;
     width: 100%;
 }
-#divRpot {
+
+.btnReport {
     overflow-y: scroll;
-    background-color: AppWorkspace;
-    top: 313px;
+    background-color: #ffffff;
+    top: 310px;
     left: 15px;
     display: none;
     position: fixed;
     width: 190px;
     height: 350px;
-    z-index:9999;
+    z-index: 9999;
 }
+
 .report {
-    padding-top:40px;
+    padding-top: 40px;
 }
+
 .srhrpt {
-    display:none;
-    float:right;
-    top:15%;
-    position:fixed;
-    padding-left:80%
+    width: 100%;
+    display: none;
+    top: 9%;
+    position: fixed;
+    background-color: AppWorkspace;
+    margin: 0 0 0 16%;
+    z-index: 9999;
+    border: 1px solid;
 }
 
 .shadowbox {
@@ -305,7 +340,7 @@ border:1px solid transparent;
 }
 
 .signinOptionContainer {
-    float:left;
+    float: left;
     width: 55%;
     position: relative;
     padding: 10px;
@@ -364,23 +399,22 @@ border:1px solid transparent;
 .tabstyle1 {
     text-align: center;
     margin: auto auto;
-    text-decoration-color:black;
+    text-decoration-color: black;
 }
 
 .qty {
-    cursor:pointer;
+    cursor: pointer;
     text-align: center;
 }
 
 .txtBig {
-    line-height:40px;
-height:40px;
-vertical-align:central;
-width:100%;
+    line-height: 40px;
+    height: 40px;
+    vertical-align: central;
+    width: 100%;
 }
 
 .form {
-    
     display: none;
     margin: 0px 0px 0px 20%;
     padding: 20px;
@@ -392,27 +426,28 @@ width:100%;
 }
 
 #formDC {
-    padding-top:150px;
+    padding-top: 150px;
     display: none;
-    margin: 0px auto;
+    margin: -10% 0 0 0;
     width: 96%;
 }
 
 #formStock {
-    padding-top:150px;
+    padding-top: 150px;
     display: none;
     margin: -40% 0% 0% 0%;
     width: 96%;
 }
 
 #formUser {
-    padding-top:150px;
+    padding-top: 150px;
     display: none;
     margin: 0px auto;
     width: 96%;
 }
+
 #formPO {
-    padding-top:150px;
+    padding-top: 150px;
     display: none;
     margin: 0px auto;
     width: 96%;
@@ -421,37 +456,41 @@ width:100%;
 .tblUser {
     margin: 0px auto;
     width: 80%;
-    padding-left:12%
+    padding-left: 12%;
 }
 
 .tblDC {
-    border:1px solid black;
-    margin:0px auto;
+    border: 1px solid black;
+    margin: 0px auto;
     width: 60%;
 }
+
 .tblStock {
-    margin: 0px auto;
-    width: 100%;
-    display:none;
-    padding-left:12%;
+    margin: -5% 0 0 10%;
+    width: 80%;
+    display: none;
+    padding-left: 5%;
 }
+
 .tblCompany {
-    border:1px solid black;
+    border: 1px solid black;
     margin: 0px auto;
     width: 100%;
-    display:none;
+    display: none;
 }
+
 .tblPO {
     margin: 0px auto;
     width: 80%;
-    padding-left:12%
+    padding-left: 12%;
 }
+
 .divDCItems {
     font-family: helvetica;
     position: fixed;
     top: 50px;
-    height:500px;
-    width:700px;
+    height: 500px;
+    width: 700px;
     background-color: #f3f7f8;
     margin: 0px auto;
     border-radius: 6px;
@@ -459,24 +498,36 @@ width:100%;
 }
 
 .dctext {
-    width:200px;
+    width: 200px;
 }
 
 .btnclose {
-        background-color:red;
-        border-radius:20px;
-        cursor:pointer;
-        width:20px;
-        height:20px;
-        float:right;
-        text-decoration-color:white;
-    }
+    background-color: red;
+    border-radius: 20px;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    float: right;
+    text-decoration-color: white;
+}
+
 .btnclose1 {
-        background-color:red;
-        border-radius:20px;
-        cursor:pointer;
-        width:20px;
-        height:20px;
-        float:right;
-        text-decoration-color:white;
-    }
+    background-color: red;
+    border-radius: 20px;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    float: right;
+    text-decoration-color: white;
+}
+
+.footer {
+    background-color: #ffffff;
+    width: 100%;
+    z-index: 9999;
+    border: 2px solid #2b90d9;
+    height: 22px;
+    top: 96%;
+    left: 0px;
+    position: fixed;
+}

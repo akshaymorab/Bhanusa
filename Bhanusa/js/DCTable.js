@@ -113,7 +113,7 @@ function genTbl(serialnumb, rntcd) {
        /*1*/    '<td><div class="tabstyle1">' + srno + '</div></td>' +
        /*2*/    '<td><div class="tabstyle1"><select class="ddlParticular"><option value="Select">--Select--</option><option value="Desktop">Desktop</option><option value="Laptop">Laptop</option><option value="Server">Server</option><option value="Printer">Printer</option><option value="Projector">Projector</option><option value="Mobile">Mobile</option><option value="Tablet">Tablet</option><option value="Accessories">Accessories</option><option value="Others">Others</option></select></div></td>' +
        /*3*/    '<td><input type="text" class="txtBig"/></td>' +
-       /*4*/    '<td><input type="text" class="txtModelNo"/></td>' +
+       /*4*/    '<td><input type="text" autocomplete="on" class="txtModelNo"/></td>' +
        /*5*/    '<td><input type="text" class="qty" /></td>' +
        /*6*/    '<td><input type="text" class="remarks"/></div></td>' +
        /*7*/    '<td><div class="tabstyle1"><select class="ddlStatus"><option value="0">--Select--</option><option value="1">Addition</option><option value="2">Advance Rep.</option><option value="3">Returned</option></select></div></td>' +
@@ -176,7 +176,7 @@ function editDC() {
                 '<td><div class="tabstyle1">' + srno + '</div></td>' +
                 '<td><div class="tabstyle1"><select class="ddlParticular"><option value="Select">--Select--</option><option value="Desktop">Desktop</option><option value="Laptop">Laptop</option><option value="Server">Server</option><option value="Printer">Printer</option><option value="Projector">Projector</option><option value="Mobile">Mobile</option><option value="Tablet">Tablet</option><option value="Accessories">Accessories</option><option value="Others">Others</option></select></div></td>' +
                 '<td><input type="text" class="txtBig"/></td>' +
-                '<td><input type="text" class="txtModelNo"/></td>' +
+                '<td><input type="text" autocomplete="on" class="txtModelNo"/></td>' +
                 '<td><input type="text" class="qty" /></td>' +
                 '<td><input type="text" class="remarks"/></div></td>' +
                 '<td><div class="tabstyle1"><select class="ddlStatus"><option value="0">--Select--</option><option value="1">Addition</option><option value="2">Advance Rep.</option><option value="3">Returned</option></select></div></td>' +
@@ -249,15 +249,16 @@ function selItm() {
                 $('.txtModelNo').autocomplete({
                     source: resmdl,
                     select: function (event, ui) {
-                        var strrmk = ui.item.label;
+                        var strrmk = ui.item.value;
                         //$('#tblDCDetails tbody tr td:nth-child(5)').eq(len - 1).html('<div style="display:none">' + strrmk + '</div>');
                         x = resmdl.indexOf(strrmk);
                         resrmks = itemres[x];
                         resrmks = resrmks.split('^');
-                        $('#tblDCDetails tbody tr td:nth-child(6)').eq(len - 1).find('input').val(resrmks[1]);
-                        $('#tblDCDetails tbody tr td:nth-child(8)').eq(len - 1).html('<div class="divrwitm" style="display:none">' + strrmk + '</div>');
-                        $('#tblDCDetails tbody tr td:nth-child(10)').eq(len - 1).html('<div class="divparticular" style="display:none">' + selectedVal + '</div>');
-                        //if (ui.item.label != "") { document.getElementById("btnDCItmUpdt").disabled = false; }
+                        setTimeout(function () {
+                            $('#tblDCDetails tbody tr td:nth-child(6)').eq(len - 1).find('input').val(resrmks[1]);
+                            $('#tblDCDetails tbody tr td:nth-child(8)').eq(len - 1).html('<div class="divrwitm" style="display:none">' + strrmk + '</div>');
+                            $('#tblDCDetails tbody tr td:nth-child(10)').eq(len - 1).html('<div class="divparticular" style="display:none">' + selectedVal + '</div>');
+                        }, 1);//if (ui.item.label != "") { document.getElementById("btnDCItmUpdt").disabled = false; }
                     }
                 });
             }

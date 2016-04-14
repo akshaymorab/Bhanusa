@@ -62,6 +62,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="images\SouratronLogo.png" />
     <Content Include="Index.aspx" />
     <Content Include="css\animate.css" />
     <Content Include="css\calendar-blue.css" />

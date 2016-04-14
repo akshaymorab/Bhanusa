@@ -3,6 +3,7 @@ var id;
 function repotable() {
     closediv();
     $('#divRpot').show();
+    $("#btnReport").css({ "padding-bottom": "300%" });
 }
 function FUC(id) {
 
@@ -37,9 +38,9 @@ function FUC(id) {
             break;
     }
     if (conString == "tblDC" || conString == "tblCompany") {
-        $("#tblRepoStock").hide();
+        $("#divRepoStock").hide();
         $("#rentHistory").hide();
-        $("#tblRepo").show();
+        $("#divRepo").show();
         $('#divSearch').show();
         $('#ddlSearch').hide();
         $('#ddlDC').show();
@@ -86,8 +87,8 @@ function FUC(id) {
     }
     else if (conString == "tblRentHistory") {
         $("#tblRentHistory tbody tr").remove();
-        $("#tblRepo").hide();
-        $("#tblRepoStock").hide();
+        $("#divRepo").hide();
+        $("#divRepoStock").hide();
         $("#tblRentHistory").show();
         $('#divSearch').show();
         $('#ddlSearch').show();
@@ -133,8 +134,10 @@ function FUC(id) {
 
     }
     else {
-        $("#tblRepo").hide();
+        
+        $("#divRepo").hide();
         $("#rentHistory").hide();
+        $("#divRepoStock").show();
         $('#divSearch').show();
         $('#ddlSearch').show();
         $('#ddlDC').hide();
@@ -158,7 +161,7 @@ function FUC(id) {
         }
         function getDesktopSuccess(det) {
             $("#tblRepoStock tbody").empty();
-            $("#tblRepoStock").show();
+            
             var tblStockDt = det.Response;
             tblStockDt = tblStockDt.split('%');
             var rowLength = tblStockDt.length;

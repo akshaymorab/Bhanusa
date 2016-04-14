@@ -8,13 +8,12 @@
     <script src="js/jspdf.js"></script>
     <link rel="stylesheet" href="css/superadmin.css" />
     <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.10.0.min.js" type="text/javascript"></script>
-    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <%--<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>--%>
     <script src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.9.2/jquery-ui.min.js" type="text/javascript"></script>
     <link href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.9.2/themes/blitzer/jquery-ui.css" rel="Stylesheet" type="text/css" />
     <script type="text/javascript" src="//cdn.rawgit.com/MrRio/jsPDF/master/dist/jspdf.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/2.0.16/jspdf.plugin.autotable.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/1.2.0/list.min.js"></script>
-    <script type="text/javascript" src="//cdn.rawgit.com/niklasvh/html2canvas/0.5.0-alpha2/dist/html2canvas.min.js"></script>
     <script src="js/jquery.dynDateTime.min.js" type="text/javascript"></script>
     <script src="js/calendar-en.min.js" type="text/javascript"></script>
     <link href="css/calendar-blue.css" rel="stylesheet" type="text/css" />
@@ -48,6 +47,9 @@
 
     <!--Tables Home Page-->
     <script>
+        //Page Load
+
+
         //UserTable
         function usertable() {
             $("#tblUser tbody").empty();
@@ -209,7 +211,14 @@
             $('#btnAddDCItem').hide();
             $('#formCompany').hide();
             $("#stkItem").hide();
-            $("#btnUser").css({ "padding-top": "0%" });
+            $("#btnStock").css({ "padding-bottom": "0%" });
+            $('#divRepoStock').hide();
+            $('#divRepo').hide();
+            $('#rentHistory').hide();
+            $('#divSearch').hide();
+            $('#divRpot').hide();
+            $("#btnReport").css({ "padding-bottom": "0%" });
+            
         }
         //close all labels
         function closelab() {
@@ -507,7 +516,7 @@
 
         <!--DC-->
         <div id="divDC">
-            <input type="button" id="btnAddDC" value="Add" class="btn" onclick="adddc();" />
+            <input type="button" id="btnAddDC" value="Add" onclick="adddc();" />
             <table id="tblDC" class="tblDC">
                 <thead>
                     <tr>
@@ -592,7 +601,7 @@
         </div>
 
         <!--PO-->
-        <div id="divPO" >
+        <div id="divPO">
             <input type="button" id="btnAddPO" value="Add" class="btn" onclick="addPO();" />
             <table id="tblPO" class="tblPO">
                 <thead>
@@ -613,47 +622,49 @@
 
 
     </div>
+    
+    <!--Search-->
+    <div id="divSearch" class="srhrpt">
+        <label id="label22">Count:</label><label id="label23" style="margin: 0.4%"></label><label id="strRent">Rent</label><label id="label24" style="margin: 0.4%"></label><label id="strInStock">InStock:</label><label id="label25" style="margin: 0.4%"></label>
+        <label id="strColmn">Select Column:</label>
+        <select id="ddlSearch" style="display: none">
+            <option value="0">--Select--</option>
+            <option value="1">SerialNumber</option>
+            <option value="2">ModelNumber</option>
+            <option value="3">Company</option>
+            <option value="4">DCNo</option>
+        </select>
+        <select id="ddlDC" style="display: none">
+            <option value="0">--Select--</option>
+            <option value="1">DCNo</option>
+            <option value="2">Company</option>
+            <option value="3">Date</option>
+        </select>
+
+        <input type="text" id="txt1" autocomplete="on" onclick="fucSearch();" />
+        <input type="button" value="Search" id="btnSearch" onclick="btnSearch()" />
+        <input type="button" value="Export" id="btnETE" onclick="btnExcel()" />
+    </div>
 
     <!--Report-->
-    <div id="divRpot">
-        <input type="button" id="btn1" value="DC" class="btnRpot" onclick="FUC(this.id);" />
-        <input type="button" id="btn4" value="Desktop" class="btnRpot" onclick="FUC(this.id);" />
-        <input type="button" id="btn5" value="Laptop" class="btnRpot" onclick="FUC(this.id);" />
-        <input type="button" id="btn6" value="Server" class="btnRpot" onclick="FUC(this.id);" />
-        <input type="button" id="btn7" value="Printer" class="btnRpot" onclick="FUC(this.id);" />
-        <input type="button" id="btn8" value="Projector" class="btnRpot" onclick="FUC(this.id);" />
-        <input type="button" id="btn9" value="Mobile" class="btnRpot" onclick="FUC(this.id);" />
-        <input type="button" id="btn10" value="Tablet" class="btnRpot" onclick="FUC(this.id);" />
-        <input type="button" id="btn11" value="Accessories" class="btnRpot" onclick="FUC(this.id);" />
-        <input type="button" id="btn12" value="Others" class="btnRpot" onclick="FUC(this.id);" /><br />
-        <input type="button" id="btn13" value="History" class="btnRpot" onclick="FUC(this.id);" /><br />
-        <div id="divSearch" class="srhrpt">
-            <label id="label1">Count:</label><label id="label2" style="margin: 0.4%"></label><label id="strRent">Rent</label><label id="label3" style="margin: 0.4%"></label><label id="strInStock">InStock:</label><label id="label4" style="margin: 0.4%"></label>
-            <label id="strColmn">Select Column:</label>
-            <select id="ddlSearch" style="display: none">
-                <option value="0">--Select--</option>
-                <option value="1">SerialNumber</option>
-                <option value="2">ModelNumber</option>
-                <option value="3">Company</option>
-                <option value="4">DCNo</option>
-            </select>
-            <select id="ddlDC" style="display: none">
-                <option value="0">--Select--</option>
-                <option value="1">DCNo</option>
-                <option value="2">Company</option>
-                <option value="3">Date</option>
-            </select>
-
-            <input type="text" id="txt1" autocomplete="on" onclick="fucSearch();" />
-            <input type="button" value="Search" id="btnSearch" onclick="btnSearch()" />
-            <input type="button" value="Export" id="btnETE" onclick="btnExcel()" />
-        </div>
+    <div id="divRpot" class="btnReport">
+        <div  id="btn1"  class="btnRpot" onclick="FUC(this.id);" >DC</div>
+        <div  id="btn4"  class="btnRpot" onclick="FUC(this.id);" >Desktop</div>
+        <div  id="btn5"  class="btnRpot" onclick="FUC(this.id);" >Laptop</div>
+        <div  id="btn6"  class="btnRpot" onclick="FUC(this.id);" >Server</div>
+        <div  id="btn7"  class="btnRpot" onclick="FUC(this.id);" >Printer</div>
+        <div  id="btn8"  class="btnRpot" onclick="FUC(this.id);" >Projector</div>
+        <div  id="btn9"  class="btnRpot" onclick="FUC(this.id);" >Mobile</div>
+        <div  id="btn10"  class="btnRpot" onclick="FUC(this.id);" >Tablet</div>
+        <div  id="btn11"  class="btnRpot" onclick="FUC(this.id);" >Accessories</div>
+        <div id="btn12"  class="btnRpot" onclick="FUC(this.id);" >Others</div>
+        <div id="btn13"  class="btnRpot" onclick="FUC(this.id);" >History</div>
     </div>
     <!--End Report-->
 
     <!--StockReport-->
-    <div id="divRepoStock" style="padding-top:90px;padding-left:15%;width:100%">
-        <table id="tblRepoStock" style="display: none">
+    <div id="divRepoStock" style="display: none; padding-top: 90px; padding-left: 17%; width: 80%">
+        <table id="tblRepoStock">
             <thead>
                 <tr>
                     <th class="chkouttblhead">Serial Number</th>
@@ -672,8 +683,8 @@
     </div>
 
     <!--DCReport-->
-    <div id="divRepo" style="padding-top:40px;width:100%;padding-left:15%">
-        <table id="tblRepo" style="display: none">
+    <div id="divRepo" style="display: none; padding-top: 70px; width: 100%; padding-left: 20%">
+        <table id="tblRepo">
             <thead>
                 <tr>
                     <th class="chkouttblhead">DC NO.</th>
@@ -688,8 +699,8 @@
     </div>
 
     <!--Rent History-->
-    <div id="rentHistory" style="width:100%;padding-left:15%">
-        <table id="tblRentHistory" style="display: none">
+    <div id="rentHistory" style="display: none; width: 100%; padding-left: 20%">
+        <table id="tblRentHistory">
             <thead>
                 <tr>
                     <th class="chkouttblhead">DCNo</th>
@@ -924,6 +935,15 @@
                 <input type="button" style="display: none; position: relative; margin: 10px auto; top: 10px; width: 150px; background-color: #0eb89b; border: 1px; border-radius: 4px; cursor: pointer; padding: 15px 30px 15px 30px" id="Button2" onclick="addpodet();" value="Update" />
             </form>
         </div>
+    </div>
+
+    <!--Footer-->
+    <div id="divFooter" class="footer">
+        <label style="padding-top:5px;padding-right:5px;font-size:x-small;float: right">
+            powered by  
+        <img src="images/SouratronLogo.png" style="height: 10px; width: 50px" />
+
+        </label>
     </div>
 
 </body>
