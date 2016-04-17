@@ -16,30 +16,160 @@
 }
 
 body {
-    background: url("../images/bg.jpg") no-repeat center center fixed;
-    background-size: cover;
+    background-color: #ffffff;
     font-size: 16px;
     font-family: 'Lato', sans-serif;
     font-weight: 300;
-    color: #666;
 }
 
-.chkouttblhead {
-    border: 2px solid #2b90d9;
-    width:10%;
-    z-index:9999;
-    background-color: #ffffff;
+#divBody {
+    padding-left:13%;
+    background-color:#ffffff;
+    width:87%;
+    height:100%;
 }
 
-td {
+.rpot {
+    margin:5% 0 0 0;
+}
+
+.tableDesign {
+	margin:0px;padding:0px;
+	width:90%;
+	border:1px solid #2b90d9;
+	
+	-moz-border-radius-bottomleft:0px;
+	-webkit-border-bottom-left-radius:0px;
+	border-bottom-left-radius:0px;
+	
+	-moz-border-radius-bottomright:0px;
+	-webkit-border-bottom-right-radius:0px;
+	border-bottom-right-radius:0px;
+	
+	-moz-border-radius-topright:0px;
+	-webkit-border-top-right-radius:0px;
+	border-top-right-radius:0px;
+	
+	-moz-border-radius-topleft:0px;
+	-webkit-border-top-left-radius:0px;
+	border-top-left-radius:0px;
+}.tableDesign table{
+    border-collapse: collapse;
+        border-spacing: 0;
+	width:100%;
+	height:100%;
+}.tableDesign tr:last-child td:last-child {
+	-moz-border-radius-bottomright:0px;
+	-webkit-border-bottom-right-radius:0px;
+	border-bottom-right-radius:0px;
+}
+.tableDesign table tr:first-child td:first-child {
+	-moz-border-radius-topleft:0px;
+	-webkit-border-top-left-radius:0px;
+	border-top-left-radius:0px;
+}
+.tableDesign table tr:first-child td:last-child {
+	-moz-border-radius-topright:0px;
+	-webkit-border-top-right-radius:0px;
+	border-top-right-radius:0px;
+}.tableDesign tr:last-child td:first-child{
+	-moz-border-radius-bottomleft:0px;
+	-webkit-border-bottom-left-radius:0px;
+	border-bottom-left-radius:0px;
+}.tableDesign tr:hover td{
+	background-color:#d3e9ff;
+		
+
+}
+.tableDesign td{
+	vertical-align:middle;
+	
+	background-color:#aad4ff;
+
+	border:1px solid #ffffff;
+	border-width:0px 1px 1px 0px;
+	text-align:left;
+	padding:7px;
+	font-size:10px;
+	font-family:Arial;
+	font-weight:normal;
+	color:#000000;
+    font-size:11px;
+}.tableDesign tr:last-child td{
+	border-width:0px 1px 0px 0px;
+}.tableDesign tr td:last-child{
+	border-width:0px 0px 1px 0px;
+}.tableDesign tr:last-child td:last-child{
+	border-width:0px 0px 0px 0px;
+}
+.tableDesign thead th{
+    background:-o-linear-gradient(bottom, #0057af 5%, #0057af 100%);	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #0057af), color-stop(1, #0057af) );
+	background:-moz-linear-gradient( center top, #0057af 5%, #0057af 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#0057af", endColorstr="#0057af");	background: -o-linear-gradient(top,#0057af,0057af);
+	background-color:#0057af;
+	border:1px solid #ffffff;
+	text-align:center;
+	border-width:0px 0px 1px 1px;
+	font-size:14px;
+	font-family:Arial;
+	font-weight:bold;
+	color:#ffffff;
+    height:40px;
+}
+/*.tableDesign tr:first-child th{
+		background:-o-linear-gradient(bottom, #0057af 5%, #0057af 100%);	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #0057af), color-stop(1, #0057af) );
+	background:-moz-linear-gradient( center top, #0057af 5%, #0057af 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#0057af", endColorstr="#0057af");	background: -o-linear-gradient(top,#0057af,0057af);
+	background-color:#0057af;
+	border:1px solid #ffffff;
+	text-align:center;
+	border-width:0px 0px 1px 1px;
+	font-size:14px;
+	font-family:Arial;
+	font-weight:bold;
+	color:#ffffff;
+}*/
+.tableDesign tr:first-child:hover th{
+	background:-o-linear-gradient(bottom, #0057af 5%, #0057af 100%);	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #0057af), color-stop(1, #0057af) );
+	background:-moz-linear-gradient( center top, #0057af 5%, #0057af 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#0057af", endColorstr="#0057af");	background: -o-linear-gradient(top,#0057af,0057af);
+
+	background-color:#0057af;
+}
+.tableDesign tr:first-child td:first-child{
+	border-width:0px 0px 1px 0px;
+}
+.tableDesign tr:first-child td:last-child{
+	border-width:0px 0px 1px 1px;
+}
+/*tbody {
     border: 1px solid #2b90d9;
-    width:10%;
-    z-index:9999;
+    width:68%;
     background-color: #ffffff;
 }
+td {
+    height:40px;
+    border: 1px solid #2b90d9;
+}
+
+th {
+    height:40px;
+    width:100%;
+}
+
+thead {
+    position:fixed;
+    border: 1px solid #2b90d9;
+    width:68%;
+    z-index:9999;
+    background-color: #ffffff;
+    top:11%;
+    
+}*/
 
 .btd {
     border: 1px solid transparent;
+    display:none;
 }
 
 #lblLogo {
@@ -71,17 +201,15 @@ td {
 }
 
 #btnAddDC, #btnAddUser, #btnAddStock, #btnAddPO {
-    width: 10%;
+    width: 7%;
     font-size: 25px;
-    margin: 0 0 0 86%;
+    margin: 1% 0 0 78%;
     position: fixed;
-    z-index: 9999;
-    top: 10%;
     color: #2b90d9;
     transition: all 0.3s ease 0s;
     background: #fff;
     border: 2px solid #2b90d9;
-    height: 10%;
+    height: 100%;
 }
 
     #btnAddDC:hover, #btnAddUser:hover, #btnAddStock:hover, #btnAddPO:hover {
@@ -118,6 +246,7 @@ td {
     cursor: pointer;
     border: 1px solid #2b90d9;
     transition: all 0.3s ease 0s;
+    font-size:large;
 }
 
     .stock:hover {
@@ -142,9 +271,9 @@ td {
     top: 60px;
     position: fixed;
     float: left;
-    width: 215px;
+    width: 13%;
     border: 2px solid black;
-    height: 87%;
+    height: 100%;
     background-color: #ffffff;
     left: 0px;
     border-color: #2b90d9;
@@ -156,7 +285,7 @@ td {
 
 .btnMenu {
     float: left;
-    width: 190px;
+    width: 88%;
     font-weight: 400;
     font-size: 1.5em;
     margin: 0px auto;
@@ -170,9 +299,10 @@ td {
 
 .btnStkMenu {
     top: 164px;
-    width: 15%;
-    font-weight: 400;
-    font-size: 1.5em;
+    width: 12%;
+    font-family:Helvetica;
+    font-weight: 200;
+    font-size: 1em;
     margin: 0px auto;
     cursor: pointer;
     text-align: center;
@@ -207,38 +337,26 @@ td {
 
 #divDC {
     display: none;
-    margin: 0px auto;
-    width: auto;
     height: 100%;
     padding-top: 5%;
 }
 
 #divPO {
     display: none;
-    margin: 0px auto;
-    width: auto;
     height: 100%;
     top: 50px;
     position: relative;
-    padding-top: 100px;
 }
 
 #divStock {
-    position: relative;
-    top: 100px;
     display: none;
-    margin: 0px auto;
-    width: 96%;
     padding-top: 50px;
 }
 
 #divUser {
     top: 50px;
-    padding-top: 80px;
     position: relative;
     display: none;
-    margin: 0px auto;
-    width: 100%;
 }
 
 .btnReport {
@@ -248,7 +366,7 @@ td {
     left: 15px;
     display: none;
     position: fixed;
-    width: 190px;
+    width: 12%;
     height: 350px;
     z-index: 9999;
 }
@@ -258,14 +376,15 @@ td {
 }
 
 .srhrpt {
-    width: 100%;
+    width: 10%;
     display: none;
-    top: 9%;
+    top: 10%;
     position: fixed;
     background-color: AppWorkspace;
-    margin: 0 0 0 16%;
+    margin: 0 0 0 78%;
+    height:100%;
     z-index: 9999;
-    border: 1px solid;
+    padding:2px 2px 2px 2px;
 }
 
 .shadowbox {
@@ -398,7 +517,6 @@ td {
 
 .tabstyle1 {
     text-align: center;
-    margin: auto auto;
     text-decoration-color: black;
 }
 
@@ -416,7 +534,6 @@ td {
 
 .form {
     display: none;
-    margin: 0px 0px 0px 20%;
     padding: 20px;
     width: 77.5%;
     background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
@@ -426,16 +543,14 @@ td {
 }
 
 #formDC {
-    padding-top: 150px;
+    padding-top: 50px;
     display: none;
-    margin: -10% 0 0 0;
     width: 96%;
 }
 
 #formStock {
-    padding-top: 150px;
+    padding-top: 50px;
     display: none;
-    margin: -40% 0% 0% 0%;
     width: 96%;
 }
 
@@ -453,7 +568,7 @@ td {
     width: 96%;
 }
 
-.tblUser {
+/*.tblUser {
     margin: 0px auto;
     width: 80%;
     padding-left: 12%;
@@ -461,7 +576,6 @@ td {
 
 .tblDC {
     border: 1px solid black;
-    margin: 0px auto;
     width: 60%;
 }
 
@@ -483,7 +597,7 @@ td {
     margin: 0px auto;
     width: 80%;
     padding-left: 12%;
-}
+}*/
 
 .divDCItems {
     font-family: helvetica;
@@ -500,6 +614,25 @@ td {
 .dctext {
     width: 200px;
 }
+
+.btnAct {
+    position: relative; 
+    margin: 10px auto; 
+    top: 10px; 
+    width: 150px; 
+    background-color: #2b90d9; 
+    border: 1px; 
+    border-radius: 4px; 
+    cursor: pointer; 
+    padding: 15px 30px 15px 30px;
+    color:#ffffff;
+}
+    .btnAct:hover {
+        background-color: #ffffff; 
+        color:#2b90d9;
+        border:1px solid #2b90d9;
+        border-radius: 4px;
+    }
 
 .btnclose {
     background-color: red;
@@ -526,8 +659,9 @@ td {
     width: 100%;
     z-index: 9999;
     border: 2px solid #2b90d9;
-    height: 22px;
-    top: 96%;
+    height: 30px;
+    top: 97%;
     left: 0px;
     position: fixed;
 }
+

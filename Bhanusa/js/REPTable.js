@@ -86,7 +86,7 @@ function FUC(id) {
     else if (conString == "tblRentHistory") {
         $("#tblRentHistory tbody tr").remove();
         repotable();
-        $("#tblRentHistory").show();
+        $("#rentHistory").show();
         $('#divSearch').show();
         $('#ddlSearch').show();
         $('#ddlDC').hide();

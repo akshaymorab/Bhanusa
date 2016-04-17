@@ -219,7 +219,7 @@
             $('#ddlSearch').hide();
             $('#divRpot').hide();
             $("#btnReport").css({ "padding-bottom": "0%" });
-            
+
         }
         //close all labels
         function closelab() {
@@ -511,26 +511,66 @@
         <div id="btnOthers" class="stock" onclick="stocks(this.id);">Others</div>
         <div id="btnCompany" class="stock" onclick="stocks(this.id);">Company</div>
     </div>
+    <!--Report Menu-->
+    <div id="divRpot" class="btnReport">
+        <div id="btn1" class="btnRpot" onclick="FUC(this.id);">DC</div>
+        <div id="btn4" class="btnRpot" onclick="FUC(this.id);">Desktop</div>
+        <div id="btn5" class="btnRpot" onclick="FUC(this.id);">Laptop</div>
+        <div id="btn6" class="btnRpot" onclick="FUC(this.id);">Server</div>
+        <div id="btn7" class="btnRpot" onclick="FUC(this.id);">Printer</div>
+        <div id="btn8" class="btnRpot" onclick="FUC(this.id);">Projector</div>
+        <div id="btn9" class="btnRpot" onclick="FUC(this.id);">Mobile</div>
+        <div id="btn10" class="btnRpot" onclick="FUC(this.id);">Tablet</div>
+        <div id="btn11" class="btnRpot" onclick="FUC(this.id);">Accessories</div>
+        <div id="btn12" class="btnRpot" onclick="FUC(this.id);">Others</div>
+        <div id="btn13" class="btnRpot" onclick="FUC(this.id);">History</div>
+    </div>
+    <!--End Report-->
 
-    <!-- Table -->
-    <div id="table">
+    <!--Body-->
+    <div id="divBody">
+
+        <!--Search-->
+        <div id="divSearch" class="srhrpt">
+            <label id="label22">Count:</label><label id="label23" style="margin: 0.4%"></label>
+            <label id="strRent">Rent</label><label id="label24" style="margin: 0.4%"></label>
+            <label id="strInStock">InStock:</label><label id="label25" style="margin: 0.4%"></label>
+            <label id="strColmn">Select Column:</label>
+            <select id="ddlSearch" style="display: none; padding: 2px;">
+                <option value="0">--Select--</option>
+                <option value="1">SerialNumber</option>
+                <option value="2">ModelNumber</option>
+                <option value="3">Company</option>
+                <option value="4">DCNo</option>
+            </select>
+            <select id="ddlDC" style="display: none">
+                <option value="0">--Select--</option>
+                <option value="1">DCNo</option>
+                <option value="2">Company</option>
+                <option value="3">Date</option>
+            </select>
+
+            <input type="text" id="txt1" autocomplete="on" style="width: 80%;" onclick="fucSearch();" />
+            <input type="button" value="Search" id="btnSearch" onclick="btnSearch()" />
+            <input type="button" value="Export" id="btnETE" onclick="btnExcel()" />
+        </div>
 
         <!--DC-->
-        <div id="divDC">
+        <div id="divDC" class="tableDesign">
             <input type="button" id="btnAddDC" value="Add" onclick="adddc();" />
-            <table id="tblDC" class="tblDC">
+            <table id="tblDC">
                 <thead>
                     <tr>
-                        <th style="display: none" class="chkouttblhead">SNo</th>
-                        <th class="chkouttblhead">DCNo</th>
-                        <th class="chkouttblhead">Company</th>
-                        <th class="chkouttblhead">Address</th>
-                        <th class="chkouttblhead">Location</th>
-                        <th class="chkouttblhead">Date</th>
-                        <th class="chkouttblhead">Remarks</th>
-                        <th class="chkouttblhead">Updated By</th>
-                        <th class="chkouttblhead">Updated Time</th>
-                        <th class="chkouttblhead">Edit</th>
+                        <th style="display: none">SNo</th>
+                        <th>DCNo</th>
+                        <th>Company</th>
+                        <th>Address</th>
+                        <th>Location</th>
+                        <th>Date</th>
+                        <th>Remarks</th>
+                        <th>Updated By</th>
+                        <th>Updated Time</th>
+                        <th>Edit</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -539,22 +579,22 @@
         </div>
 
         <!--Stock-->
-        <div id="divStock" class="table">
+        <div id="divStock" class="tableDesign">
             <input type="button" id="btnAddStock" value="Add" style="display: none" class="btn" onclick="stockclick();" />
             <table id="tblStock" class="tblStock">
                 <thead>
                     <tr>
-                        <th style="display: none" class="chkouttblhead">SNo</th>
-                        <th class="chkouttblhead">Serial Number</th>
-                        <th class="chkouttblhead">Particular</th>
-                        <th class="chkouttblhead">Type</th>
-                        <th class="chkouttblhead">Brand</th>
-                        <th class="chkouttblhead">PurchaseDate</th>
-                        <th class="chkouttblhead">Model Number</th>
-                        <th class="chkouttblhead">Remarks</th>
-                        <th class="chkouttblhead">Status</th>
-                        <th class="chkouttblhead">Rent Code</th>
-                        <th class="chkouttblhead">Edit</th>
+                        <th style="display: none">SNo</th>
+                        <th>Serial Number</th>
+                        <th>Particular</th>
+                        <th>Type</th>
+                        <th>Brand</th>
+                        <th>PurchaseDate</th>
+                        <th>Model Number</th>
+                        <th>Remarks</th>
+                        <th>Status</th>
+                        <th>Rent Code</th>
+                        <th>Edit</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -564,13 +604,13 @@
             <table id="tblCompany" class="tblStock">
                 <thead>
                     <tr>
-                        <th style="display: none" class="chkouttblhead">SNo</th>
-                        <th class="chkouttblhead">Company id</th>
-                        <th class="chkouttblhead">Name</th>
-                        <th class="chkouttblhead">Address</th>
-                        <th class="chkouttblhead">Phone</th>
-                        <th class="chkouttblhead">Location</th>
-                        <th class="chkouttblhead">Edit</th>
+                        <th style="display: none">SNo</th>
+                        <th>Company id</th>
+                        <th>Name</th>
+                        <th>Address</th>
+                        <th>Phone</th>
+                        <th>Location</th>
+                        <th>Edit</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -579,21 +619,21 @@
         </div>
 
         <!--User-->
-        <div id="divUser" class="table">
+        <div id="divUser" class="tableDesign">
             <input type="button" id="btnAddUser" value="Add" class="btn" onclick="adduser();" />
             <label id="lblAddUser" visible="false" style="width: 100%" />
             <table id="tblUser" class="tblUser">
                 <thead>
                     <tr>
-                        <th style="display: none" class="chkouttblhead">SNo</th>
-                        <th class="chkouttblhead">id</th>
-                        <th class="chkouttblhead">Name</th>
-                        <th class="chkouttblhead">Role</th>
-                        <th class="chkouttblhead">Password</th>
-                        <th class="chkouttblhead">Mobile</th>
-                        <th class="chkouttblhead">Email</th>
-                        <th class="chkouttblhead">Address</th>
-                        <th class="chkouttblhead">Edit</th>
+                        <th style="display: none">SNo</th>
+                        <th>id</th>
+                        <th>Name</th>
+                        <th>Role</th>
+                        <th>Password</th>
+                        <th>Mobile</th>
+                        <th>Email</th>
+                        <th>Address</th>
+                        <th>Edit</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -602,18 +642,18 @@
         </div>
 
         <!--PO-->
-        <div id="divPO">
+        <div id="divPO" class="tableDesign">
             <input type="button" id="btnAddPO" value="Add" class="btn" onclick="addPO();" />
             <table id="tblPO" class="tblPO">
                 <thead>
                     <tr>
-                        <th style="display: none" class="chkouttblhead">SNo</th>
-                        <th class="chkouttblhead">PO Number</th>
-                        <th class="chkouttblhead">PO Company</th>
-                        <th class="chkouttblhead">Start Date</th>
-                        <th class="chkouttblhead">End Date</th>
-                        <th class="chkouttblhead">Renew Date</th>
-                        <th class="chkouttblhead">Edit</th>
+                        <th style="display: none">SNo</th>
+                        <th>PO Number</th>
+                        <th>PO Company</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                        <th>Renew Date</th>
+                        <th>Edit</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -621,326 +661,286 @@
             </table>
         </div>
 
-
-    </div>
-    
-    <!--Search-->
-    <div id="divSearch" class="srhrpt">
-        <label id="label22">Count:</label><label id="label23" style="margin: 0.4%"></label><label id="strRent">Rent</label><label id="label24" style="margin: 0.4%"></label><label id="strInStock">InStock:</label><label id="label25" style="margin: 0.4%"></label>
-        <label id="strColmn">Select Column:</label>
-        <select id="ddlSearch" style="display: none">
-            <option value="0">--Select--</option>
-            <option value="1">SerialNumber</option>
-            <option value="2">ModelNumber</option>
-            <option value="3">Company</option>
-            <option value="4">DCNo</option>
-        </select>
-        <select id="ddlDC" style="display: none">
-            <option value="0">--Select--</option>
-            <option value="1">DCNo</option>
-            <option value="2">Company</option>
-            <option value="3">Date</option>
-        </select>
-
-        <input type="text" id="txt1" autocomplete="on" onclick="fucSearch();" />
-        <input type="button" value="Search" id="btnSearch" onclick="btnSearch()" />
-        <input type="button" value="Export" id="btnETE" onclick="btnExcel()" />
-    </div>
-
-    <!--Report-->
-    <div id="divRpot" class="btnReport">
-        <div  id="btn1"  class="btnRpot" onclick="FUC(this.id);" >DC</div>
-        <div  id="btn4"  class="btnRpot" onclick="FUC(this.id);" >Desktop</div>
-        <div  id="btn5"  class="btnRpot" onclick="FUC(this.id);" >Laptop</div>
-        <div  id="btn6"  class="btnRpot" onclick="FUC(this.id);" >Server</div>
-        <div  id="btn7"  class="btnRpot" onclick="FUC(this.id);" >Printer</div>
-        <div  id="btn8"  class="btnRpot" onclick="FUC(this.id);" >Projector</div>
-        <div  id="btn9"  class="btnRpot" onclick="FUC(this.id);" >Mobile</div>
-        <div  id="btn10"  class="btnRpot" onclick="FUC(this.id);" >Tablet</div>
-        <div  id="btn11"  class="btnRpot" onclick="FUC(this.id);" >Accessories</div>
-        <div id="btn12"  class="btnRpot" onclick="FUC(this.id);" >Others</div>
-        <div id="btn13"  class="btnRpot" onclick="FUC(this.id);" >History</div>
-    </div>
-    <!--End Report-->
-
-    <!--StockReport-->
-    <div id="divRepoStock" style="display: none; padding-top: 90px; padding-left: 17%; width: 80%">
-        <table id="tblRepoStock">
-            <thead>
-                <tr>
-                    <th class="chkouttblhead">Serial Number</th>
-                    <th class="chkouttblhead">Model Number</th>
-                    <th class="chkouttblhead">StockStatus</th>
-                    <th class="chkouttblhead">DC No</th>
-                    <th class="chkouttblhead">Company</th>
-                    <th class="chkouttblhead">Configuration</th>
-                    <th class="chkouttblhead">DCStatus</th>
-                    <th class="chkouttblhead">Quantity</th>
-                </tr>
-            </thead>
-            <tbody>
-            </tbody>
-        </table>
-    </div>
-
-    <!--DCReport-->
-    <div id="divRepo" style="display: none; padding-top: 80px; width: 80%; padding-left: 20%">
-        <table id="tblRepo">
-            <thead>
-                <tr>
-                    <th class="chkouttblhead">DC NO.</th>
-                    <th class="chkouttblhead">COMPANY</th>
-                    <%--<th class="chkouttblhead">PO NO.</th>--%>
-                    <th class="chkouttblhead">DATE</th>
-                </tr>
-            </thead>
-            <tbody>
-            </tbody>
-        </table>
-    </div>
-
-    <!--Rent History-->
-    <div id="rentHistory" style="display: none; width: 100%; padding-left: 20%">
-        <table id="tblRentHistory">
-            <thead>
-                <tr>
-                    <th class="chkouttblhead">DCNo</th>
-                    <th class="chkouttblhead">Company</th>
-                    <th class="chkouttblhead">SerialNumber</th>
-                    <th class="chkouttblhead">ModelNumber</th>
-                    <th class="chkouttblhead">Configurtion</th>
-                    <th class="chkouttblhead">Quantity</th>
-                    <th class="chkouttblhead">StartDate</th>
-                    <th class="chkouttblhead">EndDate</th>
-                </tr>
-            </thead>
-            <tbody>
-            </tbody>
-        </table>
-    </div>
-    <!--End History-->
-
-    <!--Form-->
-    <div id="form" class="form">
-        <!--DC-->
-        <div id="formDC" style="display: none">
-            <form id="frmDC" method="post">
-                <div class="btnclose" id="btnclose" onclick="frmclose(this.id);">X</div>
-                <div id="divFormDC">
-                    <div class="fieldgroup signinOptionContainer">
-                        <label id="lblDCNo" class="dclabel">DC Number:</label>
-                        <input type="text" class="dctext" name="dcno" autocomplete="off" required="required" id="txtDCNo" />
-                    </div>
-                    <div style="float: right; margin: 15px 40px 0px 0px">
-                        <label id="Label15" class="dclabel">Date:</label>
-                        <input type="text" class="dctext" name="dcno" autocomplete="off" required="required" id="txtDate" />
-                    </div>
-                    <div style="float: right; margin: 15px 40px 0px 0px">
-                        <label id="Label21" class="dclabel">PO Number:</label>
-                        <input type="text" class="dctext" name="dcno" autocomplete="off" required="required" id="txtPoNumb" onclick="autoPO();" />
-                    </div>
-                    <div class="fieldgroup signinOptionContainer">
-                        <label id="lblCompany" class="dclabel">Company:  &nbsp &nbsp</label>
-                        <input type="text" class="dctext" name="company" autocomplete="off" required="required" id="txtCompany" onclick="autoCompany();" />
-                    </div>
-                    <div class="fieldgroup signinOptionContainer">
-                        <label id="lblAddress" class="dclabel">Address:&nbsp &nbsp &nbsp&nbsp</label>
-                        <input type="text" class="dctext" name="address" autocomplete="off" required="required" id="txtCompAddress" />
-                        <!--<textarea style="height:40px;" required="required" id="txtCompAddress" />-->
-                    </div>
-                    <div class="fieldgroup signinOptionContainer">
-                        <label id="lblLocation" class="dclabel">Location: &nbsp &nbsp &nbsp</label>
-                        <input type="text" class="dctext" name="address" autocomplete="off" required="required" id="txtLocation" />
-                    </div>
-                    <div class="fieldgroup signinOptionContainer">
-                        <label id="lblRemarks" class="dclabel">Remarks:&nbsp &nbsp &nbsp</label>
-                        <input type="text" class="dctext" name="address" autocomplete="off" required="required" id="txtRemarks" />
-                    </div>
-
-                    <table id="tblDCDetails" style="width: 100%">
-                        <thead>
-                            <tr>
-                                <th class="chkouttblhead">SNo</th>
-                                <th class="chkouttblhead">Particular</th>
-                                <th class="chkouttblhead">Configurations</th>
-                                <th class="chkouttblhead">Serial Number</th>
-                                <th class="chkouttblhead">Quantity</th>
-                                <th class="chkouttblhead">Model Number</th>
-                                <th class="chkouttblhead">Status</th>
-                                <th>Delete</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                    </table>
-                </div>
-                <div id="ignorePDF">
-                    <input type="button" style="position: relative; margin: 10px auto; top: 10px; width: 150px; background-color: #0eb89b; border: 1px; border-radius: 4px; cursor: pointer; padding: 15px 30px 15px 30px" id="btnAddItem" onclick="adddcitem();" value="Add" />
-                    <input type="button" style="position: relative; margin: 10px auto; top: 10px; left: 33%; width: 150px; background-color: #0eb89b; border: 1px; border-radius: 4px; cursor: pointer; padding: 15px 30px 15px 30px; display: none" id="btnAddDCItem" onclick="addMoreRows(this.id);" value="Create" />
-                    <input type="button" style="position: relative; margin: 10px auto; top: 10px; left: 33%; width: 150px; background-color: #0eb89b; border: 1px; border-radius: 4px; cursor: pointer; padding: 15px 30px 15px 30px; display: none" id="btnUpdtDCItem" onclick="addMoreRows(this.id);" value="Update" />
-                    <input type="button" style="position: relative; margin: 10px auto; top: 10px; left: 33%; width: 150px; background-color: #0eb89b; border: 1px; border-radius: 4px; cursor: pointer; padding: 15px 30px 15px 30px; display: none" id="btnDCPdf" onclick="genPdf();" value="Generate DC" />
-                </div>
-            </form>
+        <!--StockReport-->
+        <div id="divRepoStock" style="display: none" class="tableDesign">
+            <table id="tblRepoStock" class="rpot">
+                <thead>
+                    <tr>
+                        <th>Serial Number</th>
+                        <th>Model Number</th>
+                        <th>StockStatus</th>
+                        <th>DC No</th>
+                        <th>Company</th>
+                        <th>Configuration</th>
+                        <th>DCStatus</th>
+                        <th>Quantity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
         </div>
 
-        <!--Stock-->
-        <div id="formStock" class="form" style="display: none;">
-            <form id="frmStock" method="post" runat="server">
-                <div class="btnclose" id="btnStkClose" onclick="frmclose(this.id);"></div>
-                <div id="divfrmStock">
-                    <div class="fieldgroup signinOptionContainer">
-                        <label id="Label1" class="dclabel">Serial Number:</label>
-                        <input type="text" class="dctext" name="dcno" required="required" id="txtSrNo" />
-                    </div>
-                    <div class="fieldgroup signinOptionContainer">
-                        <label id="Label2" class="dclabel">Particular:</label>
-                        <label id="lblParticular" class="dclabel"></label>
-                    </div>
-                    <div class="fieldgroup signinOptionContainer">
-                        <label id="Label3" class="dclabel">Type:</label>
-                        <select id="ddlSelect">
-                            <option value="0">Brand</option>
-                            <option value="1">Assembled</option>
-                        </select>
-                    </div>
-                    <div class="fieldgroup signinOptionContainer">
-                        <label id="Label4" class="dclabel">Brand:</label>
-                        <input type="text" class="dctext" autocomplete="off" required="required" id="txtBrand" />
-                    </div>
-                    <div class="fieldgroup signinOptionContainer">
-                        <label id="Label5" class="dclabel">Purchase Date:</label>
-                        <asp:TextBox ID="txtPurchaseDate" runat="server" />
-                        <img src="images/Arrow.png" style="height: 10px; width: 10px;" />
-                    </div>
-                    <div class="fieldgroup signinOptionContainer">
-                        <label id="Label14" class="dclabel">Model Number:</label>
-                        <input type="text" class="dctext" autocomplete="off" required="required" id="txtStkMdln" />
-                    </div>
-                    <div class="fieldgroup signinOptionContainer">
-                        <label id="Label6" class="dclabel">Remarks:</label>
-                        <input type="text" class="dctext" autocomplete="off" required="required" id="txtStkRemark" />
-                    </div>
-                    <div class="fieldgroup signinOptionContainer">
-                        <label id="Label7" class="dclabel">Status:</label>
-                        <select id="ddlStatus">
-                            <option value="0">In Stock</option>
-                            <option value="1">Rent</option>
-                        </select>
-                    </div>
-                    <div class="fieldgroup signinOptionContainer">
-                        <label id="Label8" class="dclabel">Rent Code:</label>
-                        <label id="lblRentCode" class="dclabel"></label>
-                    </div>
-                </div>
-                <input type="button" style="display: none; position: relative; margin: 10px auto; top: 10px; width: 150px; background-color: #0eb89b; border: 1px; border-radius: 4px; cursor: pointer; padding: 15px 30px 15px 30px" id="btnStkAdd" onclick="addstkitem(this.id);" value="Add" />
-                <input type="button" style="display: none; position: relative; margin: 10px auto; top: 10px; width: 150px; background-color: #0eb89b; border: 1px; border-radius: 4px; cursor: pointer; padding: 15px 30px 15px 30px" id="btnStkUpdt" onclick="addstkitem(this.id);" value="Update" />
-            </form>
+        <!--DCReport-->
+        <div id="divRepo" style="display: none" class="tableDesign">
+            <table id="tblRepo" class="rpot">
+                <thead>
+                    <tr>
+                        <th>DC NO.</th>
+                        <th>COMPANY</th>
+                        <%--<th >PO NO.</th>--%>
+                        <th>DATE</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
         </div>
 
-        <!--Company-->
-        <div id="formCompany" class="form" style="display: none;">
-            <form id="frmComp" method="post">
-                <div class="btnclose" id="btnFrmComp" onclick="frmclose(this.id);"></div>
-                <div id="div3">
-                    <div class="fieldgroup signinOptionContainer">
-                        <label id="Label9" class="dclabel">Company Id:</label>
-                        <input type="text" class="dctext" name="dcno" required="required" id="txtCompId" />
-                    </div>
-                    <div class="fieldgroup signinOptionContainer">
-                        <label id="Label10" class="dclabel">Company Name:</label>
-                        <input type="text" class="dctext" name="dcno" required="required" id="txtCompName" />
-                    </div>
-                    <div class="fieldgroup signinOptionContainer">
-                        <label id="Label11" class="dclabel">Address:</label>
-                        <input type="text" class="dctext" name="dcno" required="required" id="txtAddress" />
-                    </div>
-                    <div class="fieldgroup signinOptionContainer">
-                        <label id="Label13" class="dclabel">Phone:</label>
-                        <input type="text" class="dctext" name="dcno" required="required" id="txtPhone" />
-                    </div>
-                    <div class="fieldgroup signinOptionContainer">
-                        <label id="Label12" class="dclabel">Location:</label>
-                        <input type="text" class="dctext" name="dcno" required="required" id="txtCompLoc" />
-                    </div>
-                </div>
-                <input type="button" style="display: none; position: relative; margin: 10px auto; top: 10px; width: 150px; background-color: #0eb89b; border: 1px; border-radius: 4px; cursor: pointer; padding: 15px 30px 15px 30px" id="btnCompAdd" onclick="addcompdet(this.id);" value="Add" />
-                <input type="button" style="display: none; position: relative; margin: 10px auto; top: 10px; width: 150px; background-color: #0eb89b; border: 1px; border-radius: 4px; cursor: pointer; padding: 15px 30px 15px 30px" id="btnCompUpdt" onclick="addcompdet(this.id);" value="Update" />
-            </form>
+        <!--Rent History-->
+        <div id="rentHistory" class="tableDesign" style="display: none">
+            <table id="tblRentHistory" class="rpot">
+                <thead>
+                    <tr>
+                        <th>DCNo</th>
+                        <th>Company</th>
+                        <th>SerialNumber</th>
+                        <th>ModelNumber</th>
+                        <th>Configurtion</th>
+                        <th>Quantity</th>
+                        <th>StartDate</th>
+                        <th>EndDate</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
         </div>
+        <!--End History-->
 
-        <!--User-->
-        <div id="formUser" class="form">
-            <div class="shadowbox" style="opacity: 0.7;">
-            </div>
-            <div class="shadowbox logindiv">
-                <div class="btnclose" id="btnLoginDiv" onclick="frmclose(this.id);"></div>
-                <b class="signin">Employee Login</b><br />
-                < class="signina">We need your Details</>
-                <br />
-                <form id="here" autocomplete="on" method="post">
-                    <div id="form-content">
+        <!--Form-->
+        <div id="form" class="form">
+            <!--DC-->
+            <div id="formDC" style="display: none">
+                <form id="frmDC" method="post">
+                    <div class="btnclose" id="btnclose" onclick="frmclose(this.id);">X</div>
+                    <div id="divFormDC">
                         <div class="fieldgroup signinOptionContainer">
-                            <input type="text" name="empId" placeholder="Employee Id  :" maxlength="4" autocomplete="off" required="required" class="signinOptionTxt" id="txtEmpId" />
+                            <label id="lblDCNo" class="dclabel">DC Number:</label>
+                            <input type="text" class="dctext" name="dcno" autocomplete="off" required="required" id="txtDCNo" />
+                        </div>
+                        <div style="float: right; margin: 15px 40px 0px 0px">
+                            <label id="Label15" class="dclabel">Date:</label>
+                            <input type="text" class="dctext" name="dcno" autocomplete="off" required="required" id="txtDate" />
+                        </div>
+                        <div style="float: right; margin: 15px 40px 0px 0px">
+                            <label id="Label21" class="dclabel">PO Number:</label>
+                            <input type="text" class="dctext" name="dcno" autocomplete="off" required="required" id="txtPoNumb" onclick="autoPO();" />
                         </div>
                         <div class="fieldgroup signinOptionContainer">
-                            <input type="text" name="name" placeholder="Employee Name  :" class="signinOptionTxt" autocomplete="off" required="required" id="txtEmpName" />
+                            <label id="lblCompany" class="dclabel">Company:  &nbsp &nbsp</label>
+                            <input type="text" class="dctext" name="company" autocomplete="off" required="required" id="txtCompany" onclick="autoCompany();" />
                         </div>
                         <div class="fieldgroup signinOptionContainer">
-                            <input type="text" name="role" placeholder="Employee Role  :" class="signinOptionTxt" autocomplete="off" required="required" id="txtEmpRole" />
+                            <label id="lblAddress" class="dclabel">Address:&nbsp &nbsp &nbsp&nbsp</label>
+                            <input type="text" class="dctext" name="address" autocomplete="off" required="required" id="txtCompAddress" />
+                            <!--<textarea style="height:40px;" required="required" id="txtCompAddress" />-->
                         </div>
                         <div class="fieldgroup signinOptionContainer">
-                            <input type="password" name="password" placeholder="enter password with 4 or more characters " class="signinOptionTxt" id="txtEmpPass" />
+                            <label id="lblLocation" class="dclabel">Location: &nbsp &nbsp &nbsp</label>
+                            <input type="text" class="dctext" name="address" autocomplete="off" required="required" id="txtLocation" />
                         </div>
                         <div class="fieldgroup signinOptionContainer">
-                            <input type="text" name="mobile" placeholder="Mobile  :" maxlength="10" autocomplete="off" required="required" class="signinOptionTxt" id="txtMobile" />
+                            <label id="lblRemarks" class="dclabel">Remarks:&nbsp &nbsp &nbsp</label>
+                            <input type="text" class="dctext" name="address" autocomplete="off" required="required" id="txtRemarks" />
                         </div>
-                        <div class="fieldgroup signinOptionContainer">
-                            <input type="email" name="email" placeholder="E-mail  :" autocomplete="off" required="required" class="signinOptionTxt" id="txtEmail" />
-                        </div>
-                        <div class="fieldgroup signinOptionContainer">
-                            <input type="text" name="address" placeholder="Address :" autocomplete="off" required="required" class="signinOptionTxt" id="txtUserAddress" />
-                        </div>
-                        <input type="submit" style="position: relative; margin: 10px auto; top: 10px; left: 33%; width: 150px; background-color: #0eb89b; border: 1px; border-radius: 4px; cursor: pointer; padding: 15px 30px 15px 30px" id="btnSubmit" onclick="addMoreRows(this.id);" value="Create" />
+
+                        <table id="tblDCDetails" class="tableDesign">
+                            <thead>
+                                <tr>
+                                    <th>SNo</th>
+                                    <th>Particular</th>
+                                    <th>Configurations</th>
+                                    <th>Serial Number</th>
+                                    <th>Quantity</th>
+                                    <th>Model Number</th>
+                                    <th>Status</th>
+                                    <th>Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="ignorePDF">
+                        <input type="button" class="btnAct" id="btnAddItem" onclick="adddcitem();" value="Add" />
+                        <input type="button" class="btnAct" id="btnAddDCItem" onclick="addMoreRows(this.id);" value="Create" />
+                        <input type="button" class="btnAct" id="btnUpdtDCItem" onclick="addMoreRows(this.id);" value="Update" />
+                        <input type="button" class="btnAct" id="btnDCPdf" onclick="genPdf();" value="Generate DC" />
                     </div>
                 </form>
             </div>
-        </div>
 
-        <!--PO-->
-        <div id="formPO" class="form" style="display: none;">
-            <form id="frmPO" method="post">
-                <div class="btnclose" id="Div2" onclick="frmclose(this.id);"></div>
-                <div id="divfrmPO">
-                    <div class="fieldgroup signinOptionContainer">
-                        <label id="Label16" class="dclabel">PO Number:</label>
-                        <input type="text" class="dctext" name="dcno" required="required" id="txtPoNo" />
+            <!--Stock-->
+            <div id="formStock" class="form" style="display: none;">
+                <form id="frmStock" method="post" runat="server">
+                    <div class="btnclose" id="btnStkClose" onclick="frmclose(this.id);"></div>
+                    <div id="divfrmStock">
+                        <div class="fieldgroup signinOptionContainer">
+                            <label id="Label1" class="dclabel">Serial Number:</label>
+                            <input type="text" class="dctext" name="dcno" required="required" id="txtSrNo" />
+                        </div>
+                        <div class="fieldgroup signinOptionContainer">
+                            <label id="Label2" class="dclabel">Particular:</label>
+                            <label id="lblParticular" class="dclabel"></label>
+                        </div>
+                        <div class="fieldgroup signinOptionContainer">
+                            <label id="Label3" class="dclabel">Type:</label>
+                            <select id="ddlSelect">
+                                <option value="0">Brand</option>
+                                <option value="1">Assembled</option>
+                            </select>
+                        </div>
+                        <div class="fieldgroup signinOptionContainer">
+                            <label id="Label4" class="dclabel">Brand:</label>
+                            <input type="text" class="dctext" autocomplete="off" required="required" id="txtBrand" />
+                        </div>
+                        <div class="fieldgroup signinOptionContainer">
+                            <label id="Label5" class="dclabel">Purchase Date:</label>
+                            <asp:TextBox ID="txtPurchaseDate" runat="server" />
+                            <img src="images/Arrow.png" style="height: 10px; width: 10px;" />
+                        </div>
+                        <div class="fieldgroup signinOptionContainer">
+                            <label id="Label14" class="dclabel">Model Number:</label>
+                            <input type="text" class="dctext" autocomplete="off" required="required" id="txtStkMdln" />
+                        </div>
+                        <div class="fieldgroup signinOptionContainer">
+                            <label id="Label6" class="dclabel">Remarks:</label>
+                            <input type="text" class="dctext" autocomplete="off" required="required" id="txtStkRemark" />
+                        </div>
+                        <div class="fieldgroup signinOptionContainer">
+                            <label id="Label7" class="dclabel">Status:</label>
+                            <select id="ddlStatus">
+                                <option value="0">In Stock</option>
+                                <option value="1">Rent</option>
+                            </select>
+                        </div>
+                        <div class="fieldgroup signinOptionContainer">
+                            <label id="Label8" class="dclabel">Rent Code:</label>
+                            <label id="lblRentCode" class="dclabel"></label>
+                        </div>
                     </div>
-                    <div class="fieldgroup signinOptionContainer">
-                        <label id="Label17" class="dclabel">PO Company:</label>
-                        <input type="text" class="dctext" name="dcno" required="required" id="txtPoComp" onclick="autoCompany();" />
+                    <input type="button" style="display: none; position: relative; margin: 10px auto; top: 10px; width: 150px; background-color: #0eb89b; border: 1px; border-radius: 4px; cursor: pointer; padding: 15px 30px 15px 30px" id="btnStkAdd" onclick="addstkitem(this.id);" value="Add" />
+                    <input type="button" style="display: none; position: relative; margin: 10px auto; top: 10px; width: 150px; background-color: #0eb89b; border: 1px; border-radius: 4px; cursor: pointer; padding: 15px 30px 15px 30px" id="btnStkUpdt" onclick="addstkitem(this.id);" value="Update" />
+                </form>
+            </div>
+
+            <!--Company-->
+            <div id="formCompany" class="form" style="display: none;">
+                <form id="frmComp" method="post">
+                    <div class="btnclose" id="btnFrmComp" onclick="frmclose(this.id);"></div>
+                    <div id="div3">
+                        <div class="fieldgroup signinOptionContainer">
+                            <label id="Label9" class="dclabel">Company Id:</label>
+                            <input type="text" class="dctext" name="dcno" required="required" id="txtCompId" />
+                        </div>
+                        <div class="fieldgroup signinOptionContainer">
+                            <label id="Label10" class="dclabel">Company Name:</label>
+                            <input type="text" class="dctext" name="dcno" required="required" id="txtCompName" />
+                        </div>
+                        <div class="fieldgroup signinOptionContainer">
+                            <label id="Label11" class="dclabel">Address:</label>
+                            <input type="text" class="dctext" name="dcno" required="required" id="txtAddress" />
+                        </div>
+                        <div class="fieldgroup signinOptionContainer">
+                            <label id="Label13" class="dclabel">Phone:</label>
+                            <input type="text" class="dctext" name="dcno" required="required" id="txtPhone" />
+                        </div>
+                        <div class="fieldgroup signinOptionContainer">
+                            <label id="Label12" class="dclabel">Location:</label>
+                            <input type="text" class="dctext" name="dcno" required="required" id="txtCompLoc" />
+                        </div>
                     </div>
-                    <div class="fieldgroup signinOptionContainer">
-                        <label id="Label18" class="dclabel">Start Date:</label>
-                        <input type="text" class="dctext" name="dcno" required="required" id="txtStartDate" />
-                    </div>
-                    <div class="fieldgroup signinOptionContainer">
-                        <label id="Label19" class="dclabel">End Date:</label>
-                        <input type="text" class="dctext" name="dcno" required="required" id="txtEndDate" />
-                    </div>
-                    <div class="fieldgroup signinOptionContainer">
-                        <label id="Label20" class="dclabel">Renew Date:</label>
-                        <input type="text" class="dctext" name="dcno" required="required" id="txtRenewDate" />
-                    </div>
+                    <input type="button" style="display: none; position: relative; margin: 10px auto; top: 10px; width: 150px; background-color: #0eb89b; border: 1px; border-radius: 4px; cursor: pointer; padding: 15px 30px 15px 30px" id="btnCompAdd" onclick="addcompdet(this.id);" value="Add" />
+                    <input type="button" style="display: none; position: relative; margin: 10px auto; top: 10px; width: 150px; background-color: #0eb89b; border: 1px; border-radius: 4px; cursor: pointer; padding: 15px 30px 15px 30px" id="btnCompUpdt" onclick="addcompdet(this.id);" value="Update" />
+                </form>
+            </div>
+
+            <!--User-->
+            <div id="formUser" class="form">
+                <div class="shadowbox" style="opacity: 0.7;">
                 </div>
-                <input type="button" style="position: relative; margin: 10px auto; top: 10px; width: 150px; background-color: #0eb89b; border: 1px; border-radius: 4px; cursor: pointer; padding: 15px 30px 15px 30px" id="btnAddPo" onclick="addpodet();" value="Add" />
-                <input type="button" style="display: none; position: relative; margin: 10px auto; top: 10px; width: 150px; background-color: #0eb89b; border: 1px; border-radius: 4px; cursor: pointer; padding: 15px 30px 15px 30px" id="Button2" onclick="addpodet();" value="Update" />
-            </form>
+                <div class="shadowbox logindiv">
+                    <div class="btnclose" id="btnLoginDiv" onclick="frmclose(this.id);"></div>
+                    <b class="signin">Employee Login</b><br />
+                    < class="signina">We need your Details</>
+                <br />
+                    <form id="here" autocomplete="on" method="post">
+                        <div id="form-content">
+                            <div class="fieldgroup signinOptionContainer">
+                                <input type="text" name="empId" placeholder="Employee Id  :" maxlength="4" autocomplete="off" required="required" class="signinOptionTxt" id="txtEmpId" />
+                            </div>
+                            <div class="fieldgroup signinOptionContainer">
+                                <input type="text" name="name" placeholder="Employee Name  :" class="signinOptionTxt" autocomplete="off" required="required" id="txtEmpName" />
+                            </div>
+                            <div class="fieldgroup signinOptionContainer">
+                                <input type="text" name="role" placeholder="Employee Role  :" class="signinOptionTxt" autocomplete="off" required="required" id="txtEmpRole" />
+                            </div>
+                            <div class="fieldgroup signinOptionContainer">
+                                <input type="password" name="password" placeholder="enter password with 4 or more characters " class="signinOptionTxt" id="txtEmpPass" />
+                            </div>
+                            <div class="fieldgroup signinOptionContainer">
+                                <input type="text" name="mobile" placeholder="Mobile  :" maxlength="10" autocomplete="off" required="required" class="signinOptionTxt" id="txtMobile" />
+                            </div>
+                            <div class="fieldgroup signinOptionContainer">
+                                <input type="email" name="email" placeholder="E-mail  :" autocomplete="off" required="required" class="signinOptionTxt" id="txtEmail" />
+                            </div>
+                            <div class="fieldgroup signinOptionContainer">
+                                <input type="text" name="address" placeholder="Address :" autocomplete="off" required="required" class="signinOptionTxt" id="txtUserAddress" />
+                            </div>
+                            <input type="submit" style="position: relative; margin: 10px auto; top: 10px; left: 33%; width: 150px; background-color: #0eb89b; border: 1px; border-radius: 4px; cursor: pointer; padding: 15px 30px 15px 30px" id="btnSubmit" onclick="addMoreRows(this.id);" value="Create" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!--PO-->
+            <div id="formPO" class="form" style="display: none;">
+                <form id="frmPO" method="post">
+                    <div class="btnclose" id="Div2" onclick="frmclose(this.id);"></div>
+                    <div id="divfrmPO">
+                        <div class="fieldgroup signinOptionContainer">
+                            <label id="Label16" class="dclabel">PO Number:</label>
+                            <input type="text" class="dctext" name="dcno" required="required" id="txtPoNo" />
+                        </div>
+                        <div class="fieldgroup signinOptionContainer">
+                            <label id="Label17" class="dclabel">PO Company:</label>
+                            <input type="text" class="dctext" name="dcno" required="required" id="txtPoComp" onclick="autoCompany();" />
+                        </div>
+                        <div class="fieldgroup signinOptionContainer">
+                            <label id="Label18" class="dclabel">Start Date:</label>
+                            <input type="text" class="dctext" name="dcno" required="required" id="txtStartDate" />
+                        </div>
+                        <div class="fieldgroup signinOptionContainer">
+                            <label id="Label19" class="dclabel">End Date:</label>
+                            <input type="text" class="dctext" name="dcno" required="required" id="txtEndDate" />
+                        </div>
+                        <div class="fieldgroup signinOptionContainer">
+                            <label id="Label20" class="dclabel">Renew Date:</label>
+                            <input type="text" class="dctext" name="dcno" required="required" id="txtRenewDate" />
+                        </div>
+                    </div>
+                    <input type="button" style="position: relative; margin: 10px auto; top: 10px; width: 150px; background-color: #0eb89b; border: 1px; border-radius: 4px; cursor: pointer; padding: 15px 30px 15px 30px" id="btnAddPo" onclick="addpodet();" value="Add" />
+                    <input type="button" style="display: none; position: relative; margin: 10px auto; top: 10px; width: 150px; background-color: #0eb89b; border: 1px; border-radius: 4px; cursor: pointer; padding: 15px 30px 15px 30px" id="Button2" onclick="addpodet();" value="Update" />
+                </form>
+            </div>
         </div>
     </div>
 
     <!--Footer-->
     <div id="divFooter" class="footer">
-        <label style="padding-top:5px;padding-right:5px;font-size:x-small;float: right">
+        <label style="padding-top: 5px; padding-right: 5px; font-size: x-small; float: left">2016 © Bhanusaa</label>
+        <label style="padding-top: 5px; padding-right: 5px; font-size: x-small; float: right">
             powered by  
         <img src="images/SouratronLogo.png" style="height: 10px; width: 50px" />
 

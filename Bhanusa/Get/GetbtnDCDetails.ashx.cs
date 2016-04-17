@@ -29,7 +29,7 @@ namespace Bhanusa
                 DataTable dt = new DataTable();
                 MySqlConnection con = new MySqlConnection(strCon);
                 con.Open();
-                MySqlCommand cmd = new MySqlCommand("SELECT DCNo, Company, Date from "+jsonStr+" ORDER BY DCNo ASC", con);
+                MySqlCommand cmd = new MySqlCommand("SELECT DCNo, Company, Date from tblDC ORDER BY DCNo ASC", con);
                 MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                 da.Fill(dt);
                 con.Close();
@@ -37,9 +37,8 @@ namespace Bhanusa
                 {
                     for (int i = 0; i <= dt.Rows.Count - 1; i++)
                     {
-                        string strDate = dt.Rows[i]["Date"].ToString();
-                        DateTime dtime = Convert.ToDateTime(strDate);
-                        strDate = dtime.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
+                        DateTime dtime = Convert.ToDateTime(dt.Rows[i]["Date"].ToString());
+                        string strDate = dtime.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
                         if (i == 0)
                         {
                             str = dt.Rows[i]["DCNo"].ToString() + ";" + dt.Rows[i]["Company"].ToString() + ";" + strDate;
