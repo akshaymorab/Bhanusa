@@ -242,15 +242,18 @@ thead {
 
 .stock {
     float: left;
-    width: 100%;
+    width: 105%;
     cursor: pointer;
     border: 1px solid #2b90d9;
     transition: all 0.3s ease 0s;
     font-size:large;
+    height:24px;
+    background-color:#fff;
+    color:#2b90d9;
 }
 
     .stock:hover {
-        background: #2b90d9;
+        background-color: #2b90d9;
         border-color: #2b90d9;
         color: #FFFFFF;
     }
@@ -289,12 +292,13 @@ thead {
     font-weight: 400;
     font-size: 1.5em;
     margin: 0px auto;
-    border: 2px solid;
+    border: 2px solid #2b90d9;
     padding: 10px;
     cursor: pointer;
     text-align: center;
-    border-color: #2b90d9;
     transition: all 0.3s ease 0s;
+    color:#2b90d9;
+    background-color:#fff;
 }
 
 .btnStkMenu {
@@ -314,7 +318,7 @@ thead {
 }
 
 .btnMenu:hover {
-    background-color: black;
+    background-color: #2b90d9;
     color: white;
 }
 
@@ -327,6 +331,8 @@ thead {
     text-align: center;
     border: 1px solid #2b90d9;
     transition: all 0.3s ease 0s;
+    color:#2b90d9;
+    background-color:#fff;
 }
 
     .btnRpot:hover {
